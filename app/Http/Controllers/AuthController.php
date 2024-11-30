@@ -68,7 +68,7 @@ class AuthController extends Controller
             case 'user':
                 return redirect()->route('front.home');
             case 'expert':
-                return redirect()->route('Expert.interface');
+                return redirect()->route('expert');
             case 'admin':
                 return redirect()->route('dashboard');
             default:

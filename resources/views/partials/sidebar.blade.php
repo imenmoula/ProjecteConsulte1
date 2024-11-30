@@ -3,22 +3,22 @@
         <ul class="metismenu" id="menu">
 
             @if(auth()->check() && auth()->user()->role == 'expert') 
-                <li><a href="{{ route('consultations.index') }}" class="ai-icon" aria-expanded="false">
+                <li><a href="#" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-television"></i>
                     <span class="nav-text">Gestion des consultations</span>
                 </a></li>
 
-                <li><a href="{{ route('profil.edit') }}" class="ai-icon" aria-expanded="false">
+                <li><a href="#" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">Gestion profil</span>
                 </a></li>
 
-                <li><a href="{{ route('disponibilites.index') }}" class="ai-icon" aria-expanded="false">
+                <li><a href="#" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">Gestion des disponibilités</span>
                 </a></li>
 
-                <li><a href="{{ route('chat.index') }}" class="ai-icon" aria-expanded="false">
+                <li><a href="#" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">Chat avec les clients</span>
                 </a></li>
@@ -29,14 +29,14 @@
                     <span class="nav-text">Gestion des domaines</span>
                 </a></li>
 
-                <li><a href="{{ route('experts.index') }}" class="ai-icon" aria-expanded="false">
+                <li><a href="#" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">Gestion des experts</span>
                 </a></li>
 
                 
 
-                <li><a href="{{ route('paiements.index') }}" class="ai-icon" aria-expanded="false">
+                <li><a href="#" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">Gestion des paiements</span>
                 </a></li>

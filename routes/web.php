@@ -22,7 +22,8 @@ Route::get('/', [HomeController::class, 'index'])->name('front.home');
 
 Route::get('/expert', function () {
     return view('Expert.interface');
-})->name('expert');
+})->middleware('auth')->name('expert');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -40,5 +41,5 @@ Route::controller(\App\Http\Controllers\AuthController::class)->group(function (
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth', 'role.redirect');
 //gestion domain 
 Route::resource('domaines', DomaineController::class);
-
-#partie lamis expert ihana i5dim lamis 7ot les rout imta3 les grud
+#partie lamis expert ihana i5dim lamis 7ot les rout imta3 les grud ta7t dossier ili isna3yholik fil view partie_lamis
+#test
