@@ -1,83 +1,80 @@
 @extends('dashboard')
+
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 mt-4">
+            <div class="card p-4">
+                <h3 class="text-center">Modifier l'Expert</h3>
+                <form action="{{ route('experts.update', $expert) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
 
-<DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Modifier le Domaine</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+                    <div class="form-group">
+                        <label for="email">Email*:</label>
+                        <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $expert->email) }}" required />
+                        @if($errors->has('email'))
+                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @endif
+                    </div>
 
-    @if($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-            <strong>{{ $message }}</strong>
-        </div>
-    @endif
+                    <div class="form-group">
+                        <label for="address">Adresse*:</label>
+                        <input type="text" name="address" id="address" class="form-control" value="{{ old('address', $expert->address) }}" />
+                        @if($errors->has('address'))
+                            <span class="text-danger">{{ $errors->first('address') }}</span>
+                        @endif
+                    </div>
 
-    @if($errors->any())
-        <div class="alert alert-danger alert-block">
-            <strong>Une erreur s'est produite :</strong>
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif-->
+                    <div class="form-group">
+                        <label for="phone">Téléphone*:</label>
+                        <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone', $expert->phone) }}" />
+                        @if($errors->has('phone'))
+                            <span class="text-danger">{{ $errors->first('phone') }}</span>
+                        @endif
+                    </div>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-8">
-                <div class="card mt-3 p-3">
-                    <h1 class="text-muted">Modifier le Domaine #{{ $domaine->id }}</h1>
-                    <form action="{{ route('domaines.update', $domaine) }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
+                    <div class="form-group">
+                        <label for="nb_experience">Nombre d'années d'expérience*:</label>
+                        <input type="number" name="nb_experience" id="nb_experience" class="form-control" value="{{ old('nb_experience', $expert->nb_experience) }}" />
+                        @if($errors->has('nb_experience'))
+                            <span class="text-danger">{{ $errors->first('nb_experience') }}</span>
+                        @endif
+                    </div>
 
-                        <div class="form-group">
-                            <label>Nom*:</label>
-                            <input type="text" class="form-control" name="name" value="{{ old('name', $domaine->name) }}" required />
-                            @if($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
-                            @endif
-                        </div>
+                    <div class="form-group">
+                        <label for="availability">Disponibilité:</label>
+                        <select name="availability" id="availability" class="form-control">
+                            <option value="1" {{ old('availability', $expert->availability) == 1 ? 'selected' : '' }}>Disponible</option>
+                            <option value="0" {{ old('availability', $expert->availability) == 0 ? 'selected' : '' }}>Non disponible</option>
+                        </select>
+                        @if($errors->has('availability'))
+                            <span class="text-danger">{{ $errors->first('availability') }}</span>
+                        @endif
+                    </div>
 
-                        <div class="form-group">
-                            <label>Description*:</label>
-                            <textarea class="form-control" rows="4" name="description" required>{{ old('description', $domaine->description) }}</textarea>
-                            @if($errors->has('description'))
-                                <span class="text-danger">{{ $errors->first('description') }}</span>
-                            @endif
-                        </div>
+                    <!-- Champ pour télécharger une nouvelle image (facultatif) -->
+                    <div class="form-group">
+                        <label for="image">Image (laisser vide si pas de changement):</label>
+                        @if($expert->image)
+                            <div class="mb-3">
+                                <img src="{{ asset('storage/' . $expert->image) }}" alt="{{ $expert->name }}" width="100">
+                            </div>
+                            <small>Laissez vide si vous ne souhaitez pas changer l'image.</small>
+                        @endif
+                        <input type="file" name="image" id="image" class="form-control" accept=".jpg,.jpeg,.png,.gif,.svg"/>
+                        @if($errors->has('image'))
+                            <span class="text-danger">{{ $errors->first('image') }}</span>
+                        @endif
+                    </div>
 
-                        <div class="form-group">
-                            <label>Image*:</label>
-                            @if($domaine->image)
-                                <div class="mb-3">
-                                    <img src="{{ asset('storage/' . $domaine->image) }}" alt="{{ $domaine->name }}" width="100">
-                                </div>
-                                <small>Laissez vide si vous ne souhaitez pas changer l'image.</small>
-                            @endif
-                            <input type="file" name="image" class="form-control" />
-                            @if($errors->has('image'))
-                                <span class="text-danger">{{ $errors->first('image') }}</span>
-                            @endif
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Mettre à jour</button>
-                        <a href="{{ route('domaines.index') }}" class="btn btn-secondary">Retour</a>
-                    </form>
-                </div>
+                    <!-- Boutons -->
+                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                    <a href="{{ route('experts.index') }}" class="btn btn-secondary">Retour</a>
+                </form>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+
 @endsection

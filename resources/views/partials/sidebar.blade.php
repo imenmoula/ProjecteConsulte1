@@ -29,7 +29,7 @@
                     <span class="nav-text">Gestion des domaines</span>
                 </a></li>
 
-                <li><a href="#" class="ai-icon" aria-expanded="false">
+                <li><a href="{{ route('experts.index') }}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">Gestion des experts</span>
                 </a></li>

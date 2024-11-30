@@ -53,4 +53,8 @@ class User extends Authenticatable
         ->withPivot('certification', 'profile', 'availability', 'professional_experience', 'photo', 'tel', 'adresse')
         ->withTimestamps();
 }
+public function domaine_user()
+{
+    return $this->hasMany(domaine_user::class);
+}
 }

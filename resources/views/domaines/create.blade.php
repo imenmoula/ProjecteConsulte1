@@ -1,69 +1,123 @@
 @extends('dashboard')
+
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>Ajouter un Domaine</title>
-</head>
-<body>
-  
-  @if($message = Session::get('success'))
-  <div class="alert alert-success alert-block">
-      <strong>{{ $message }}</strong>
-  </div>
-  @endif
+<div class="container mt-5">
+    <h4>Ajouter un Nouvel Expert</h4>
 
-  @if($errors->any())
-  <div class="alert alert-danger alert-block">
-      <strong>Une erreur s'est produite :</strong>
-      <ul>
-          @foreach($errors->all() as $error)
-          <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-  @endif
+    <!-- Message de succès -->
+    @if($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
 
-  <div class="container mt-5">
-    <h4>Ajouter un Nouveau Domaine</h4>
-    <form method="POST" action="{{ route('domaines.store') }}" enctype="multipart/form-data">
-      @csrf
-      <div class="form-group">
-        <label>Nom du Domaine*:</label>
-        <input type="text" class="form-control" name="name" placeholder="Saisir le nom du domaine" value="{{ old('name') }}" required />
-        @if($errors->has('name'))
-        <span class="text-danger">{{ $errors->first('name') }}</span>
-        @endif
-      </div>
+    <!-- Messages d'erreur -->
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <strong>Une erreur s'est produite :</strong>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-      <div class="form-group">
-        <label>Description*:</label>
-        <textarea class="form-control" rows="3" name="description" placeholder="Saisir la description">{{ old('description') }}</textarea>
-        @if($errors->has('description'))
-        <span class="text-danger">{{ $errors->first('description') }}</span>
-        @endif
-      </div>
+    <!-- Formulaire -->
+    <form action="{{ route('experts.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="name">Nom*:</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Saisir le nom de l'expert" value="{{ old('name') }}" required />
+            @if($errors->has('name'))
+                <span class="text-danger">{{ $errors->first('name') }}</span>
+            @endif
+        </div>
 
-      <div class="form-group">
-        <label>Image*:</label>
-        <input type="file" name="image" class="form-control" />
-        @if($errors->has('image'))
-        <span class="text-danger">{{ $errors->first('image') }}</span>
-        @endif
-      </div>
+        <div class="form-group">
+            <label for="email">Email*:</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Saisir l'email de l'expert" value="{{ old('email') }}" required />
+            @if($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+            @endif
+        </div>
 
-      <button type="submit" class="btn btn-primary">Créer</button>
-      <a href="{{ route('domaines.index') }}" class="btn btn-secondary">Retour</a>
+        <div class="form-group">
+            <label for="password">Mot de passe*:</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Saisir un mot de passe" required />
+            @if($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="address">Adresse:</label>
+            <input type="text" name="address" id="address" class="form-control" placeholder="Saisir l'adresse de l'expert" value="{{ old('address') }}" />
+            @if($errors->has('address'))
+                <span class="text-danger">{{ $errors->first('address') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Téléphone:</label>
+            <input type="text" name="phone" id="phone" class="form-control" placeholder="Saisir le numéro de téléphone" value="{{ old('phone') }}" />
+            @if($errors->has('phone'))
+                <span class="text-danger">{{ $errors->first('phone') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="specialty">Spécialité:</label>
+            <input type="text" name="specialty" id="specialty" class="form-control" placeholder="Saisir la spécialité de l'expert" value="{{ old('specialty') }}" />
+            @if($errors->has('specialty'))
+                <span class="text-danger">{{ $errors->first('specialty') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="availability">Disponibilité:</label>
+            <select name="availability" id="availability" class="form-control">
+                <option value="1" {{ old('availability') == 1 ? 'selected' : '' }}>Disponible</option>
+                <option value="0" {{ old('availability') == 0 ? 'selected' : '' }}>Non disponible</option>
+            </select>
+            @if($errors->has('availability'))
+                <span class="text-danger">{{ $errors->first('availability') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="nb_experience">Nombre d'années d'expérience:</label>
+            <input type="number" name="nb_experience" id="nb_experience" class="form-control" placeholder="Saisir le nombre d'années d'expérience" value="{{ old('nb_experience') }}" />
+            @if($errors->has('nb_experience'))
+                <span class="text-danger">{{ $errors->first('nb_experience') }}</span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for ="domaine_id">Domaine:</label>
+            <select name ="domaine_id" id ="domaine_id" class ="form-control">
+                @foreach($domaines as $domaine)
+                    <option value="{{ $domaine->id }}" {{ old('domaine_id') == $domaine->id ? 'selected' : '' }}>{{ $domaine->name }}</option>
+                @endforeach
+            </select>
+            @if($errors->has('domaine_id'))
+                <span class ="text-danger">{{ $errors->first('domaine_id') }}</span>
+            @endif
+        </div>
+
+        <!-- Champ pour télécharger l'image -->
+        <div class ="form-group">
+            <label for ="image">Image:</label>
+            <input type ="file" name ="image" id ="image" class ="form-control" accept=".jpg,.jpeg,.png,.gif,.svg"/>
+            @if($errors->has('image'))
+                <span class ="text-danger">{{ $errors->first('image') }}</span>
+            @endif
+        </div>
+
+        <!-- Boutons -->
+        <button type ="submit" class ="btn btn-primary">Créer</button>
+        <a href="{{ route('experts.index') }}" class ="btn btn-secondary">Retour</a>
     </form>
-  </div>
+</div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-</html>
 @endsection

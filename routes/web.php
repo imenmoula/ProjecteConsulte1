@@ -5,8 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DomaineController;
-
-
+use App\Http\Controllers\ExpertController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,5 +40,6 @@ Route::controller(\App\Http\Controllers\AuthController::class)->group(function (
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth', 'role.redirect');
 //gestion domain 
 Route::resource('domaines', DomaineController::class);
+Route::resource('experts', ExpertController::class);
 #partie lamis expert ihana i5dim lamis 7ot les rout imta3 les grud ta7t dossier ili isna3yholik fil view partie_lamis
 #test

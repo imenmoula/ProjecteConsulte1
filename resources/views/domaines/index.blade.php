@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('content')
 
-<!--h1>Liste des Domaines</h1>
+<h1>Liste des Domaines</h1>
 <a href="{{ route('domaines.create') }}">Ajouter un Domaine</a>
 <table>
     <thead>
@@ -69,6 +69,11 @@
                                         <td><strong>{{ $loop->index + 1 }}</strong></td>
                                         <td><strong>{{ $domaine->name }}</strong></td>
                                         <td>{{ $domaine->description }}</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="{{ asset('storage/' . $domaine->image) }}" class="rounded-lg mr-2" width="50" height="50" alt="{{ $domaine->name }}" />
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <img src="{{ asset('storage/' . $domaine->image) }}" class="rounded-lg mr-2" width="50" height="50" alt="{{ $domaine->name }}" />

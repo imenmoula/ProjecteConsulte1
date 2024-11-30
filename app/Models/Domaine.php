@@ -12,10 +12,11 @@ class Domaine extends Model
    
     protected $fillable = ['name', 'description', 'image']; 
 
-    public function domaineUsers()
+   
+    public function experts()
     {
-        return $this->hasMany(DomaineUser::class);
+        return $this->hasMany(Experts::class);
     }
-
+    
 
 }
