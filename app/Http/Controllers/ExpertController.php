@@ -31,11 +31,11 @@ class ExpertController extends Controller
             'specialty' => 'nullable|string|max:255',
             'availability' => 'boolean',
             'nb_experience' => 'nullable|integer',
-            'domaine_id' => 'required|exists:domaines,id', // Validation pour l'identifiant du domaine
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validation pour l'image
+            'domaine_id' => 'required|exists:domaines,id', // Validation for domaine_id
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validation for image
         ]);
     
-        $experts = new Experts(); // Utilisez Expert (au singulier)
+        $experts = new Experts(); // Create a new Expert instance
     
         $experts->name = $request->name;
         $experts->email = $request->email;
@@ -46,13 +46,18 @@ class ExpertController extends Controller
         $experts->availability = $request->availability;
         $experts->nb_experience = $request->nb_experience;
         $experts->domaine_id = $request->domaine_id;
-        $experts->image = $request->file('image')->store('images'); // Enregistrer l'image
     
-        $experts->save();
+        // Save the image in the 'public/images' directory and get its file path
+        $imagePath = $request->file('image')->store('images', 'public'); // Use 'public' disk for public storage
     
-        return redirect()->route('experts.index')->with('success', 'Expert créé avec succès.');
+        // Save the image path in the database
+        $experts->image = $imagePath;
+    
+        $experts->save(); // Save the expert instance
+    
+        return redirect()->route('experts.index')->with('success', 'Expert created successfully.');
     }
-
+    
     
     
     public function show($id)
@@ -95,13 +100,12 @@ class ExpertController extends Controller
         $experts->nb_experience = $request->nb_experience;
         $experts->domaine_id = $request->domaine_id;
         if ($request->hasFile('image')) {
-            // Supprimer l'ancienne image si elle existe
-            if ($experts->image) {
-                \Storage::disk('public')->delete($experts->image);
-
-            }
-            $experts->image = $request->file('image')->store('images'); // Enregistrer l'image
-
+            
+            // Save the image in the 'public/images' directory and get its file path
+            $imagePath = $request->file('image')->store('images', 'public'); // Use 'public' disk for public storage
+                
+            // Save the image path in the database
+            $experts->image = $imagePath;
         }
     
         $experts->save();
@@ -109,8 +113,9 @@ class ExpertController extends Controller
         return redirect()->route('experts.index')->with('success', 'Expert mis à jour avec succès.');
     }
 
-    public function destroy(Expert $expert)
+    public function destroy($id)
     {
+        $expert = Experts::find($id);
         if ($expert) {
             $expert->delete();
             return redirect()->route('experts.index')->with('success', 'Expert supprimé avec succès.');
