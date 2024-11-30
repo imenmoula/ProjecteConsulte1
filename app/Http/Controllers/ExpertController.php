@@ -55,21 +55,23 @@ class ExpertController extends Controller
 
     
     
-    public function show($idt)
+    public function show($id)
     {
         $expert = Experts::findOrFail($id);
 
         return view('experts.show', compact('expert'));
     }
 
-    public function edit(Expert $experts)
+    public function edit($id)
     {
-        $domaines = Domaine::all(); // Récupérer tous les domaines pour le formulaire d'édition
+        $domaines = Domaine::all();
+        $expert = Experts::findOrFail($id); // Récupérer tous les domaines pour le formulaire d'édition
         return view('experts.edit', compact('expert', 'domaines'));
     }
 
-    public function update(Request $request, Expert $expert)
+    public function update(Request $request, $id)
     {
+        $experts = Experts::findOrFail($id); // Utilisez Expert (au singulier)
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
@@ -92,7 +94,15 @@ class ExpertController extends Controller
         $experts->availability = $request->availability;
         $experts->nb_experience = $request->nb_experience;
         $experts->domaine_id = $request->domaine_id;
-        $experts->image = $request->file('image')->store('images'); // Enregistrer l'image
+        if ($request->hasFile('image')) {
+            // Supprimer l'ancienne image si elle existe
+            if ($experts->image) {
+                \Storage::disk('public')->delete($experts->image);
+
+            }
+            $experts->image = $request->file('image')->store('images'); // Enregistrer l'image
+
+        }
     
         $experts->save();
     
