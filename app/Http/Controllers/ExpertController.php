@@ -55,8 +55,10 @@ class ExpertController extends Controller
 
     
     
-    public function show(Expert $expert)
+    public function show($idt)
     {
+        $expert = Expert::findOrFail($id);
+
         return view('experts.show', compact('expert'));
     }
 
