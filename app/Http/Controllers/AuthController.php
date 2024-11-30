@@ -66,13 +66,13 @@ class AuthController extends Controller
 
         switch ($user->role) {
             case 'user':
-                return redirect()->route('home');
+                return redirect()->route('front.home');
             case 'expert':
-                return redirect()->route('expert.dashboard');
+                return redirect()->route('Expert.interface');
             case 'admin':
-                return redirect()->route('admin.front');
-            default:
                 return redirect()->route('dashboard');
+            default:
+                return redirect()->route('front.home');
         }
     } else {
         return back()->with('fail', 'Email or password incorrect.');
