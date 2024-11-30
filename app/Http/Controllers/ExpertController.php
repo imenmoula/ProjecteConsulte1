@@ -10,7 +10,7 @@ class ExpertController extends Controller
 {
     public function index()
     {
-        $experts = Expert::with('domaine')->get(); // Utilisez Expert (au singulier)
+        $experts = Experts::with('domaine')->get(); // Utilisez Expert (au singulier)
         return view('experts.index', compact('experts'));
     }
 
@@ -35,7 +35,7 @@ class ExpertController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validation pour l'image
         ]);
     
-        $experts = new Expert(); // Utilisez Expert (au singulier)
+        $experts = new Experts(); // Utilisez Expert (au singulier)
     
         $experts->name = $request->name;
         $experts->email = $request->email;
@@ -57,7 +57,7 @@ class ExpertController extends Controller
     
     public function show($idt)
     {
-        $expert = Expert::findOrFail($id);
+        $expert = Experts::findOrFail($id);
 
         return view('experts.show', compact('expert'));
     }
