@@ -13,7 +13,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/1.jfif')  }}">
 	
-	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 	
     <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet" type="text/css"/>
    <link href="{{asset('admin/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet" type="text/css"/>
@@ -46,12 +47,10 @@
     ***********************************-->
     <div id="main-wrapper">
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
+        
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-							<img class="logo-abbr" src="{{ asset('images/1.jfif') }}"class="rounded-lg mr-3" width ="300%" height="150px"   alt="">
+            <a href="#" class="brand-logo">
+                <img class="logo-abbr rounded-circle" src="{{ asset('images/1.jfif') }}" width="100" height="100" alt="Logo">
 				
             </a>
 
@@ -61,83 +60,24 @@
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-
-        <!--**********************************
-            Header start
-        ***********************************-->
         
-		
-		<!--**********************************
-            Chat box End
-        ***********************************-->
-		
-		<!--**********************************
-            Header start
-        ***********************************-->
         @include('partials.header')
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->		
-		
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-
+        
         @include('partials.sidebar')
      
-              <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-		
-		
-        <!--**********************************
-            Content body start
-        ***********************************-->
+             
         <div class="content-body">
-            <!-- row -->
-                        <!-- row -->
                         @yield('content')
 			
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
+        
+          
         
         @include('partials.footer') 	
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-		<!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
+       
 
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
+    
 
 
             <script src="{{asset('admin/vendor/global/global.min.js')}}" type="text/javascript"></script>

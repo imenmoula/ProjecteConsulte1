@@ -47,4 +47,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'availability' => 'boolean',
     ];
+    public function domaines()
+{
+    return $this->belongsToMany(Domaine::class)
+        ->withPivot('certification', 'profile', 'availability', 'professional_experience', 'photo', 'tel', 'adresse')
+        ->withTimestamps();
+}
 }

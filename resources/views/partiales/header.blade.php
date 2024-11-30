@@ -31,7 +31,7 @@
                     class="topbar-right d-flex flex-wrap topbar-right justify-content-center justify-content-md-start full-height">
                     <div class="topbar-right-item topbar-padding color-white">
                         <i class="flaticon-clock"></i>
-                        Dimanche ferme
+                        dimanche fermer
                     </div>
                     <div class="topbar-right-item topbar-padding color-white">
                         <i class="flaticon-placeholder-1"></i>
@@ -167,9 +167,13 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ route('front.includes.parfum','parfum') }}" class="nav-link">NOS PARFUMS</a>
+                                    <a href="" class="nav-link">NOS Expert</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Reservation</a>
                                 </li>
                                 
+
                                 <li class="nav-item">
                                     <a href="" class="nav-link">CONTACT</a>
                                 </li>
@@ -179,7 +183,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ url('/registration') }}" class="nav-link">Inscription</a>
+                                    <a href="{{route('inscription') }}" class="nav-link">Inscription</a>
                                 </li>
 
                                 <li class="nav-item">
