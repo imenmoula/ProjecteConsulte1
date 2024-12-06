@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DomaineController;
 use App\Http\Controllers\ExpertController;
+use App\Http\Controllers\FontController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,9 @@ use App\Http\Controllers\ExpertController;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('front.home');
-
+Route::get('/front', [HomeController::class, 'showfronT'])->name('front.showfront');
+Route::get('/apropos', [HomeController::class, 'apropos'])->name('front.apropos');
+Route::get('/expert/{id}', [HomeController::class, 'detailExpert'])->name('expert.detail');
 
 Route::get('/expert', function () {
     return view('Expert.interface');
@@ -41,5 +44,3 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middlewa
 //gestion domain 
 Route::resource('domaines', DomaineController::class);
 Route::resource('experts', ExpertController::class);
-#partie lamis expert ihana i5dim lamis 7ot les rout imta3 les grud ta7t dossier ili isna3yholik fil view partie_lamis
-#test

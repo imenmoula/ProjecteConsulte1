@@ -167,7 +167,10 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">NOS Expert</a>
+                                    <a href="{{ route('front.showfront') }}" class="nav-link">NOS Expert</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('front.apropos') }}" class="nav-link">A propos</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="nav-link">Reservation</a>
