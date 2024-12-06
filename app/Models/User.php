@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\rendivent;
 
 class User extends Authenticatable
 {
@@ -57,4 +58,10 @@ public function domaine_user()
 {
     return $this->hasMany(domaine_user::class);
 }
+
+public function rendivents()
+{
+    return $this->hasMany(Rendivent::class);
+}
+
 }

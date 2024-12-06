@@ -28,7 +28,7 @@ class HomeController extends Controller
     $experts = Experts::with('domaine')->find($id); // Correction ici
 
     if (!$experts) {
-        return redirect()->route('front.index')->with('error', 'Expert non trouvé.');
+        return redirect()->route('front.home')->with('error', 'Expert non trouvé.');
     }
 
     return view('front.expert', compact('experts'));

@@ -8,10 +8,13 @@
                     <span class="nav-text">Gestion des consultations</span>
                 </a></li>
 
-                <li><a href="#" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-settings-2"></i>
-                    <span class="nav-text">Gestion profil</span>
-                </a></li>
+                <li>
+                    <a href="{{ route('profile.show') }}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">Gestion profil</span>
+                    </a>
+                </li>
+                
 
                 <li><a href="#" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>

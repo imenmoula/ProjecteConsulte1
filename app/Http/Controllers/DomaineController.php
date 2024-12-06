@@ -14,9 +14,10 @@ class DomaineController extends Controller
     }
 
     public function create()
-    {
-        return view('domaines.create');
-    }
+{
+    $domaines = Domaine::all();
+    return view('domaines.create', compact('domaines'));
+}
 
     public function store(Request $request)
     {

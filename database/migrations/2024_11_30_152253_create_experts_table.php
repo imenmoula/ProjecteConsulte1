@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('experts', function (Blueprint $table) {
             $table->id();
-            $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
@@ -26,7 +25,7 @@ return new class extends Migration
             $table->foreignId('domaine_id')->constrained()->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
-            $table->timestamps();
+          
         });
     }
 
