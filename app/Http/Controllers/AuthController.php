@@ -42,7 +42,8 @@ class AuthController extends Controller
 
     if ($user) {
         // Store user ID in session and redirect to dashboard
-        $request->session()->put('loginId', $user->id);
+         // Log the user in
+         Auth::login($user);
         return redirect('dashboard');
     }
 
@@ -67,16 +68,7 @@ class AuthController extends Controller
     if ($user && Hash::check($request->password, $user->password)) {
         Auth::login($user);
 
-        switch ($user->role) {
-            case 'user':
-                return redirect()->route('front.home');
-            case 'expert':
-                return redirect()->route('expert');
-            case 'admin':
-                return redirect()->route('dashboard');
-            default:
-                return redirect()->route('front.home');
-        }
+        return redirect('dashboard');
     } else {
         return back()->with('fail', 'Email or password incorrect.');
     }
@@ -95,9 +87,8 @@ class AuthController extends Controller
     // Logout
     public function logout()
     {
-        if (Session::has('loginId')) {
-            Session::pull('loginId');
+        Auth::logout();
             return redirect('login');
-        }
+        
     }
 }

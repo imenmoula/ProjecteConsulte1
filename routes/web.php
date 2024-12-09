@@ -48,7 +48,7 @@ Route::controller(\App\Http\Controllers\AuthController::class)->group(function (
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 //dasboard
-Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth', 'role.redirect');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
 //gestion domain 
 //gestion domain 
 Route::resource('domaines', DomaineController::class);
