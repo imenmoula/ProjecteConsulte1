@@ -13,7 +13,8 @@ class AuthController extends Controller
 {
     public function inscription()
     {
-        return view('auth.inscription');
+        $domaines = Domaine::all();
+        return view('auth.inscription', compact('domaines'));
     }
     public function registerUser(Request $request)
 {
