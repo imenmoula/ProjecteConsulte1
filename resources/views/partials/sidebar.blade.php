@@ -1,7 +1,6 @@
 <div class="deznav">
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
-            <li> {{ auth()->user()->name }} {{  auth()->user()->role }}</li>
             @if(auth()->check() && auth()->user()->role == 'expert') 
                 <li>
                     <a href="#" class="ai-icon" aria-expanded="false">
