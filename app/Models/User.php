@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\rendivent;
+use App\Models\Domaine;
+use App\Models\Availability;
+
 
 class User extends Authenticatable
 {
@@ -27,8 +30,11 @@ class User extends Authenticatable
         'phone',
         'specialty',
         'availability',
+        'image',
+        'nb_experience',
+        'domaine_id',
     ];
-
+   
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -48,20 +54,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'availability' => 'boolean',
     ];
-    public function domaines()
-{
-    return $this->belongsToMany(Domaine::class)
-        ->withPivot('certification', 'profile', 'availability', 'professional_experience', 'photo', 'tel', 'adresse')
-        ->withTimestamps();
-}
-public function domaine_user()
-{
-    return $this->hasMany(domaine_user::class);
-}
+
+public function domaine()
+    {
+        return $this->belongsTo(Domaine::class); // Un expert appartient à un domaine
+    }
 
 public function rendivents()
 {
     return $this->hasMany(Rendivent::class);
 }
+public function availabilities()
+    {
+        return $this->hasMany(Availability::class); // Un utilisateur peut avoir plusieurs disponibilités
+    }
 
 }

@@ -10,18 +10,18 @@ class RendiventController extends Controller
     public function index()
     {
         $rendivents = Rendivent::with('user')->get();
-        return view('consulte.index', compact('rendivents'));
+        return view('front.consulte.index', compact('rendivents'));
     }
 
     public function show($id)
     {
         $rendivent = Rendivent::with('user')->findOrFail($id);
-        return view('consulte.show', compact('rendivent'));
+        return view('front.consulte.show', compact('rendivent'));
     }
 
     public function create()
     {
-        return view('consulte.create');
+        return view('front.consulte.create');
     }
 
     public function store(Request $request)
@@ -35,13 +35,13 @@ class RendiventController extends Controller
     
         Rendivent::create($validated + ['user_id' => auth()->id()]);
     
-        return redirect()->route('consulte.index')->with('success', 'Consultation créée avec succès.');
+        return redirect()->route('front.consulte.index')->with('success', 'Consultation créée avec succès.');
     }
 
     public function edit($id)
     {
         $rendivent = Rendivent::findOrFail($id);
-        return view('consulte.edit', compact('rendivent'));
+        return view('front.consulte.edit', compact('rendivent'));
     }
 
     public function update(Request $request, $id)
@@ -55,7 +55,7 @@ class RendiventController extends Controller
         $rendivent = Rendivent::findOrFail($id);
         $rendivent->update($validated);
 
-        return redirect()->route('consulte.index')->with('success', 'Rendivent mis à jour avec succès.');
+        return redirect()->route('front.consulte.index')->with('success', 'Rendivent mis à jour avec succès.');
     }
 
     public function destroy($id)
@@ -63,6 +63,6 @@ class RendiventController extends Controller
         $rendivent = Rendivent::findOrFail($id);
         $rendivent->delete();
 
-        return redirect()->route('consulte.index')->with('success', 'Rendivent supprimé avec succès.');
+        return redirect()->route('front.consulte.index')->with('success', 'Rendivent supprimé avec succès.');
     }
 }

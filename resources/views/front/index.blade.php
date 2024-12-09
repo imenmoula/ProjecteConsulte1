@@ -2,8 +2,33 @@
 @extends('front.home')
 
 @section('container')
-    <div class="header-bg header-bg-page">
+<div class="header-bg header-bg-page">
+    <div class="header-padding position-relative">
+        <div class="header-page-shape">
+            
+        </div>
+        <div class="container">
+            <div class="header-page-content">
+                <h1>Liste des experts </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Liste des experts</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
     </div>
+</div>
+
+<!--form action="" method="GET" class="mb-4">
+    <div class="form-group">
+        <label for="search">Recherche</label>
+        <input type="text" name="search" id="search" class="form-control" placeholder="Entrez localisation ou domaine d'expertise">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+</form--->
 
     <section class="menu-section bg-black p-tb-100">
         <div class="container position-relative">

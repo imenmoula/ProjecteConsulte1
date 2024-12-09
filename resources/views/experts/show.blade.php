@@ -1,33 +1,17 @@
 @extends('dashboard')
 @section('content')
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Détails de l'Expert</h4>
-                </div>
+    <div class="container">
+        <h1>{{ $user->name }}</h1>
+        <p><strong>Adresse :</strong> {{ $user->address }}</p>
+        <p><strong>Téléphone :</strong> {{ $user->phone }}</p>
+        <p><strong>Spécialité :</strong> {{ $user->domaine->name ?? 'Non spécifié' }}</p>
+        <p><strong>Années d'expérience :</strong> {{ $user->nb_experience }}</p>
+        
+        @if($user->image)
+            <img src="{{ asset('storage/' . $user->image) }}" alt="Image de l'expert" width="200">
+        @endif
 
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h5>Nom : {{ $expert->name }}</h5>
-                            <h5>Email : {{ $expert->email }}</h5>
-                            <h5>Adresse : {{ $expert->address }}</h5>
-                            <h5>Téléphone : {{ $expert->phone }}</h5>
-                            <h5>Spécialité : {{ $expert->specialty }}</h5>
-                            <h5>Disponibilité : {{ $expert->availability }}</h5>
-                            <h5>Nombre d'expérience : {{ $expert->nb_experience }}</h5>
-                            <h5>Domaine : {{ $expert->domaine->name }}</h5>
-                        </div>
-                        <div class="col-lg-6">
-                            <img src="{{ asset('storage/' . $expert->image) }}" class="img-fluid" alt="{{ $expert->name }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <a href="{{ route('experts.index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
     </div>
-</div>
 @endsection

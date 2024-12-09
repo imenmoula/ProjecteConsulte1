@@ -9,22 +9,21 @@
                 </a></li>
 
                 <li>
-                    <a href="{{ route('profile.show') }}" class="ai-icon" aria-expanded="false">
+                    <a href="" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-settings-2"></i>
                         <span class="nav-text">Gestion profil</span>
                     </a>
                 </li>
                 
 
-                <li><a href="#" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-settings-2"></i>
-                    <span class="nav-text">Gestion des disponibilités</span>
-                </a></li>
+                <li>
+                    <a href="{{ route('availabilities.index', ['userId' => auth()->user()->id]) }}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">Gestion des disponibilités</span>
+                    </a>
+                </li>
 
-                <li><a href="#" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-settings-2"></i>
-                    <span class="nav-text">Chat avec les clients</span>
-                </a></li>
+                
 
             @elseif(auth()->check() && auth()->user()->role == 'admin')
                 <li><a href="{{ route('domaines.index') }}" class="ai-icon" aria-expanded="false">

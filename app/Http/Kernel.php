@@ -67,4 +67,5 @@ class Kernel extends HttpKernel
     
         'role.redirect' => \App\Http\Middleware\RoleRedirect::class,
     ];
+   
 }

@@ -83,16 +83,20 @@
                                             </div>
 
                                             <!-- Specialty -->
+                                            <!-- Domaine -->
                                             <div class="form-group mb-3">
-                                                <label for="specialty">Spécialité</label>
-                                                <select name="specialty" class="form-control">
-                                                    <option value="finance">Finance</option>
-                                                    <option value="Medical">Medical</option>
-                                                    <option value="juridrique">juridrique</option>
-                                                    <option value="Avocat">Avocat</option>
-
+                                                <label for="domaine_id">Domaine</label>
+                                                <select name="domaine_id" class="form-control" required>
+                                                    <option value="">Choisissez un domaine</option>
+                                                    @foreach ($domaines as $domaine)
+                                                        <option value="{{ $domaine->id }}">{{ $domaine->name }}</option>
+                                                    @endforeach
                                                 </select>
+                                                @error('domaine_id')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
+
 
                                             <!-- Role -->
                                             <div class="form-group mb-3">

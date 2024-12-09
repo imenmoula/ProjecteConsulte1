@@ -173,8 +173,9 @@
                                     <a href="{{ route('front.apropos') }}" class="nav-link">A propos</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Reservation</a>
+                                    <a href="" class="nav-link">List Historique</a>
                                 </li>
+                               
                                 
 
                                 <li class="nav-item">

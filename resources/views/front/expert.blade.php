@@ -58,7 +58,7 @@
 
                         
                         
-                        <a href="{{ route('consulte.create', ['expert_id' => $experts->id]) }}" class="btn btn-icon">
+                        <a href="" class="btn btn-icon">
                             Passe une consultation avec {{ $experts->name }}
                             <i class="flaticon-mail"></i>
                         </a>

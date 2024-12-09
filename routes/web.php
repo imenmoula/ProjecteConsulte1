@@ -9,6 +9,7 @@ use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\FontController;
 use App\Http\Controllers\ExpertProfileController;
 use App\Http\Controllers\RendiventController;
+use App\Http\Controllers\AvailabilityController;
 //use App\Http\Controllers\ExpertProfileController;
 /*
 |--------------------------------------------------------------------------
@@ -52,16 +53,17 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middlewa
 //gestion domain 
 Route::resource('domaines', DomaineController::class);
 Route::resource('experts', ExpertController::class);
-//consulte
+// Afficher les disponibilités
+Route::resource('availabilities', AvailabilityController::class);
 
 // Liste des rendez-vous
-Route::get('/consulte', [RendiventController::class, 'index'])->name('consulte.index');
-Route::get('/consulte/{id}', [RendiventController::class, 'show'])->name('consulte.show');
-Route::get('/consulte/create', [RendiventController::class, 'create'])->name('consulte.create');
-Route::post('/consulte', [RendiventController::class, 'store'])->name('consulte.store');
-Route::get('/consulte/{id}/edit', [RendiventController::class, 'edit'])->name('consulte.edit');
-Route::put('/consulte/{id}', [RendiventController::class, 'update'])->name('consulte.update');
-Route::delete('/consulte/{id}', [RendiventController::class, 'destroy'])->name('consulte.destroy');
+/*Route::get('/consulte', [RendiventController::class, 'index'])->name('front.consulte.index');
+Route::get('/consulte/{id}', [RendiventController::class, 'show'])->name('front.consulte.show');
+Route::get('/consulte/create', [RendiventController::class, 'create'])->name('front.consulte.create');
+Route::post('/consulte', [RendiventController::class, 'store'])->name('front.consulte.store');
+Route::get('/consulte/{id}/edit', [RendiventController::class, 'edit'])->name('front.consulte.edit');
+Route::put('/consulte/{id}', [RendiventController::class, 'update'])->name('front.consulte.update');
+Route::delete('/consulte/{id}', [RendiventController::class, 'destroy'])->name('front.consulte.destroy');
 /*Route::middleware(['auth'])->group(function () {
     
     Route::get('/profile', [ExpertProfileController::class, 'show'])->name('profile.show');
