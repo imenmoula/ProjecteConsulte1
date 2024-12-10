@@ -9,9 +9,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="ai-icon" aria-expanded="false">
+                    <a href="{{ route('profile.edit') }}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-settings-2"></i>
-                        <span class="nav-text">Gestion profil</span>
+                        <span class="nav-text">Modif Profil</span>
                     </a>
                 </li>
                 <li>
