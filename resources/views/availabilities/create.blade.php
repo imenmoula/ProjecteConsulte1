@@ -51,6 +51,8 @@
         </div>
 
         <button type="submit" class="btn btn-success">Enregistrer</button>
+        <a href="{{ route('availabilities.index') }}" class="btn btn-secondary">Retour</a>
+
     </form>
 </div>
 @endsection

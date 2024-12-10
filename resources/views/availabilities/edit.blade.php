@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('content')
 <div class="container">
-    <h1>Modifier une Disponibilité - {{ $user->name }}</h1>
+    <h1>Modifier une Disponibilité </h1>
     @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
@@ -36,6 +36,8 @@
             </select>
         </div>
         <button type="submit" class="btn btn-warning">Mettre à jour</button>
+        <a href="{{ route('availabilities.index') }}" class="btn btn-secondary">Retour</a>
+
     </form>
 </div>
 @endsection

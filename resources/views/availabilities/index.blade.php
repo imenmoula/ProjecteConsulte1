@@ -51,6 +51,7 @@
             <td>{{ $availability->status }}</td>
             <td>
                 <a href="{{ route('availabilities.edit', $availability->id) }}" class="btn btn-warning">Modifier</a>
+                <a href="{{ route('availabilities.show', $availability->id) }}" class="btn btn-info">Voir</a>
                 <form action="{{ route('availabilities.destroy', $availability->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')

@@ -1,7 +1,7 @@
 @extends('dashboard')
 @section('content')
 <div class="container">
-    <h1>Détails de la Disponibilité pour </h1>
+    <h1>Détails de la Disponibilité </h1>
     <table class="table table-bordered">
         <tr>
             <th>Nom de lexpert:</th>

@@ -69,7 +69,6 @@ class AvailabilityController extends Controller
   public function update(Request $request, $id)
   {
       $request->validate([
-          'user_id' => 'required|exists:users,id', // Corrected to 'user_id'
           'start_time' => 'required|date|before:end_time',
           'end_time' => 'required|date|after:start_time',
           'status' => 'required|in:disponible,reserver,indisponible',
