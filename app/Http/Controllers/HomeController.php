@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Domaine;
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -16,30 +16,28 @@ class HomeController extends Controller
     {
         return view('front.home');
     }
-
     public function showfront()
     {
         $domaines = Domaine::all();
-
-        return view('front.index', compact('domaines'));
+    
+        $experts = User::where('role', 'expert')
+            ->whereIn('domaine_id', $domaines->pluck('id'))
+            ->get();
+    
+        return view('front.index', compact('domaines', 'experts'));
     }
   
-public function detailExpert($id)
-{
-    // Check if the authenticated user has the 'expert' role
-    if (auth()->user()->role === 'expert') {
-        $experts = Users::with('domaine')->find($id);  // Retrieve the expert with its domaine details
-
-        if (!$experts) {
+    public function detailExpert($id)
+    {
+        // Retrieve the expert by ID, with their domaine details
+        $expert = User::with('domaine')->find($id);
+    
+        if (!$expert) {
             return redirect()->route('front.home')->with('error', 'Expert not found.');
         }
-
-        return view('front.expert', compact('experts'));
+    
+        return view('front.expert', compact('expert'));
     }
-
-    // If the user is not an expert, redirect to home or another page
-    return redirect()->route('front.home')->with('error', 'You do not have access to this page.');
-}
     
 
 

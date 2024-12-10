@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('expert.status') }}" class="ai-icon" aria-expanded="false">
+                    <a href="{{ route('experts.status') }}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-settings-2"></i>
                         <span class="nav-text">suivi disponibiliter des experts</span>
                     </a>
