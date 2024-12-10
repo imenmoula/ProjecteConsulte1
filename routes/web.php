@@ -27,13 +27,9 @@ Route::get('/expert/{id}', [HomeController::class, 'detailExpert'])->name('exper
 
 
 
-
-
 Route::get('/expert', function () {
     return view('Expert.interface');
 })->middleware('auth')->name('expert');
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -57,15 +53,10 @@ Route::resource('experts', ExpertController::class);
 Route::get('/profiles/show', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profiles.show');
 Route::get('/profiles/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profiles.edit');
 Route::put('/profiles', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profiles.update');
-// Mettre à jour le mot de passe
-//Route::put('/profile/password', [App\Http\Controllers\ProfilesController::class, 'updatePassword'])->name('profile.updatePassword');
-// Liste des rendez-vous
-/*Route::get('/consulte', [RendiventController::class, 'index'])->name('front.consulte.index');
+/* 
+Route::get('/consulte', [RendiventController::class, 'index'])->name('front.consulte.index');
 Route::get('/consulte/{id}', [RendiventController::class, 'show'])->name('front.consulte.show');
 Route::get('/consulte/create', [RendiventController::class, 'create'])->name('front.consulte.create');
 Route::post('/consulte', [RendiventController::class, 'store'])->name('front.consulte.store');
 Route::get('/consulte/{id}/edit', [RendiventController::class, 'edit'])->name('front.consulte.edit');
-Route::put('/consulte/{id}', [RendiventController::class, 'update'])->name('front.consulte.update');
-Route::delete('/consulte/{id}', [RendiventController::class, 'destroy'])->name('front.consulte.destroy');
-
-
+*/
