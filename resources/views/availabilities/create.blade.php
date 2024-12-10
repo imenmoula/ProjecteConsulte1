@@ -1,28 +1,45 @@
 @extends('dashboard')
+
 @section('content')
-    <h1>Créer une Disponibilité</h1>
+<div class="container">
+    <h1>Ajouter une Disponibilité</h1>
+
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <form action="{{ route('availabilities.store') }}" method="POST">
         @csrf
-        <label for="expert_id">Expert :</label>
-        <select name="expert_id" id="expert_id" required>
-            @foreach($experts as $expert)
-                <option value="{{ $expert->id }}">{{ $expert->name }}</option>
-            @endforeach
-        </select>
+        <div class="mb-3">
+            <label for="start_time" class="form-label">Heure de Début</label>
+            <input type="datetime-local" name="start_time" class="form-control" required>
+        </div>
 
-        <label for="start_time">Début :</label>
-        <input type="datetime-local" name="start_time" required>
+        <div class="mb-3">
+            <label for="end_time" class="form-label">Heure de Fin</label>
+            <input type="datetime-local" name="end_time" class="form-control" required>
+        </div>
 
-        <label for="end_time">Fin :</label>
-        <input type="datetime-local" name="end_time" required>
+        <div class="mb-3">
+            <label for="status" class="form-label">Statut</label>
+            <select name="status" class="form-control" required>
+                @foreach($statuses as $status)
+                    <option value="{{ $status }}">{{ ucfirst($status) }}</option>
+                @endforeach
+            </select>
+        </div>
 
-        <label for="status">Statut :</label>
-        <select name="status" required>
-            <option value="disponible">Disponible</option>
-            <option value="réservé">Réservé</option>
-            <option value="indisponible">Indisponible</option>
-        </select>
-
-        <button type="submit">Enregistrer</button>
+        <button type="submit" class="btn btn-success">Enregistrer</button>
     </form>
+</div>
 @endsection

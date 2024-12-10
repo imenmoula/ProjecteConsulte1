@@ -49,7 +49,6 @@ Route::resource('experts', ExpertController::class);
 // Afficher les disponibilités
 Route::resource('availabilities', AvailabilityController::class);
 
-
 Route::get('/profiles/show', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profile.show');
 Route::get('/profiles/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
 Route::put('/profiles', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
