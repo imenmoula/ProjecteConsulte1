@@ -47,12 +47,12 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middlewa
 Route::resource('domaines', DomaineController::class);
 Route::resource('experts', ExpertController::class);
 // Afficher les disponibilités
-// Route::resource('availabilities', AvailabilityController::class);
+Route::resource('availabilities', AvailabilityController::class);
 
 
-Route::get('/profiles/show', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profiles.show');
-Route::get('/profiles/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profiles.edit');
-Route::put('/profiles', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profiles.update');
+Route::get('/profiles/show', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profile.show');
+Route::get('/profiles/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
+Route::put('/profiles', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
 /* 
 Route::get('/consulte', [RendiventController::class, 'index'])->name('front.consulte.index');
 Route::get('/consulte/{id}', [RendiventController::class, 'show'])->name('front.consulte.show');
