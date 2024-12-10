@@ -9,6 +9,8 @@ use App\Models\users;
 class Availability extends Model
 {
     use HasFactory;
+
+    protected $table = 'availabilities';
     protected $fillable = [
         'user_id', 'start_time', 'end_time', 'status',
     ];

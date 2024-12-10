@@ -42,26 +42,17 @@ class AvailabilityController extends Controller
 }
     // Formulaire de création
     public function store(Request $request)
-    { 
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'start_time' => 'required|date|before:end_time',
-            'end_time' => 'required|date|after:start_time',
+    {
+        $data = $request->validate([
+            'start_time' => 'required|date',
+            'end_time' => 'required|date',
             'status' => 'required|in:disponible,reserver,indisponible',
         ]);
-    
-        // Ajout de l'utilisateur authentifié par défaut
-        $availability = new Availability([
-            'user_id' => auth()->id(), // Utilisation de l'utilisateur authentifié
-            'start_time' => $request->start_time,
-            'end_time' => $request->end_time,
-            'status' => $request->status,
-        ]);
-        /** Create new avibality */
-         
-    
-        $availability->save();
-    
+
+        // Utilisation de l'utilisateur authentifié
+        $data['user_id'] = auth()->id();
+
+        Availability::create($data);
         return redirect()->route('availabilities.index')->with('success', 'Disponibilité ajoutée avec succès.');
     }
     
