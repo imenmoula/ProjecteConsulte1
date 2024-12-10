@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User; 
 use App\Models\Domaine;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Availability;
 
 
 class ExpertController extends Controller
@@ -44,5 +45,17 @@ class ExpertController extends Controller
 
         // Rediriger avec un message de succès
         return redirect()->route('experts.index')->with('success', 'Expert supprimé avec succès.');
+    }
+
+
+
+
+/* je veux afficher les disponibilités de tous les experts */
+    public function status()
+    {
+        // Charger tous les experts avec leurs disponibilités
+        $experts = User::with('availabilities')->where('role', 'expert')->get();
+
+        return view('experts.status', compact('experts'));
     }
 }

@@ -46,6 +46,8 @@ Route::controller(\App\Http\Controllers\AuthController::class)->group(function (
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
 Route::resource('domaines', DomaineController::class);
 Route::resource('experts', ExpertController::class);
+Route::get('/experts/status', [ExpertController::class, 'status'])->name('expert.status');
+
 // Afficher les disponibilités
 Route::resource('availabilities', AvailabilityController::class);
 

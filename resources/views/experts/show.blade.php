@@ -20,7 +20,7 @@
                 <div class="col-md-4">
                     <!-- Affichage de l'image de l'expert -->
                     @if($user->image)
-                        <img src="{{ asset('storage/' . $user->image) }}" class="img-fluid" alt="Image de {{ $user->name }}">
+                        <img src="{{ Storage::url($user->image) }}" class="img-fluid" alt="Image de {{ $user->name }}">
                     @else
                         <img src="https://via.placeholder.com/150" class="img-fluid" alt="Image par défaut">
                     @endif
@@ -46,9 +46,7 @@
                         <li class="list-group-item">
                             <strong>Domaine:</strong> {{ $user->domaine->name ?? 'Non spécifié' }}
                         </li>
-                        <li class="list-group-item">
-                            <strong>Disponibilité:</strong> {{ $user->availability ? 'Disponible' : 'Non disponible' }}
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
