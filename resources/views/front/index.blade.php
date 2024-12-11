@@ -28,6 +28,7 @@
         </div>
 
         <!-- Loop over the domaines -->
+        @if($domaines && count($domaines) > 0)
         <div class="menu-main-carousel-area">
             <div class="menu-main-thumb-nav">
                 @foreach($domaines as $domaine)
@@ -40,43 +41,48 @@
                 @endforeach
             </div>
         </div>
+        @else
+        <p>Aucun domaine trouvé.</p>
+        @endif
+        <!-- Loop over the experts in each domaine -->
+        <!-- Vérifiez si $domaines n'est pas vide -->
 
-        <!-- Loop over the experts in each domaine -->
-        <!-- Loop over the experts in each domaine -->
-        @if($domaines)
-        <div class="menu-main-details-for">
-            @foreach($domaines as $domaine)
-                <div class="menu-main-details-item">
-                    <div class="receipe-grid receipe-grid-three">
-                        @foreach($domaine->experts as $expert)
-                            @if($expert->role == 'expert' && $expert->domaine_id == $domaine->id)
-                                <div class="receipe-item">
-                                    <div class="receipe-item-inner">
-                                        <div class="receipe-image">
-                                            <img src="{{ asset('storage/' . $expert->image) }}" alt="expert">
-                                        </div>
-                                        <div class="receipe-content">
-                                            <div class="receipe-info">
-                                                <h3><a href="{{ route('expert.detail', $expert->id) }}">{{ $expert->name }}</a></h3>
-                                                <h4>{{ $expert->job }}</h4>
-                                            </div>
-                                            <div class="receipe-cart">
-                                                <a href="{{ route('expert.detail', $expert->id) }}">
-                                                    <i class="flaticon-expert"></i> Voir le profil
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
+<div class="menu-main-details-for">
+    @foreach($experts as $expert)
+        <div class="menu-main-details-item">
+            <div class="receipe-grid receipe-grid-three">
+             
+                    <div class="receipe-item">
+                        <div class="receipe-item-inner">
+                            <div class="receipe-image">
+                                <img src="{{ Storage::url( $expert->image) }}" alt="expert">
+                            </div>
+                            <div class="receipe-content">
+                                <div class="receipe-info">
+                                    <h3><a href="{{ route('expert.detail', $expert->id) }}">{{ $expert->name }}</a></h3>
+                                    <h4>{{ $expert->job }}</h4>
                                 </div>
-                            @endif
-                        @endforeach
+                                <div class="receipe-cart">
+                                    <a href="{{ route('expert.detail', $expert->id) }}" title="Voir le profil">
+                                        <i class="flaticon-expert"></i> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+               
+            </div>
         </div>
-    @else
-        <p>Aucun domaine trouvé</p>
-    @endif
+    @endforeach
+</div>
+
+
+
+
     </div>
+
+
 </section>
 @endsection

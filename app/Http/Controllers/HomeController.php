@@ -19,12 +19,14 @@ class HomeController extends Controller
     public function showfront()
     {
         $domaines = Domaine::all();
-    
-        $experts = User::where('role', 'expert')
-            ->whereIn('domaine_id', $domaines->pluck('id'))
+       
+        // Récupérer les experts associés
+        $experts = User::with('domaine')->where('role', 'expert')
             ->get();
     
-        return view('front.index', compact('domaines', 'experts'));
+           
+
+        return view('front.index', compact('domaines' ,'experts'));
     }
   
     public function detailExpert($id)
