@@ -65,14 +65,16 @@
         
         @include('partials.sidebar')
      
+        </div>
              
         <div class="content-body">
-                        @yield('content')
-			
-        </div>
+            @yield('content')
+
+
+
         
           
-        
+
         @include('partials.footer') 	
        
 

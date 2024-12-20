@@ -3,25 +3,20 @@
 @section('container')
 
 <div class="header-carousel-two owl-carousel owl-theme">
-    <div class="item">
+    <div class="item text-center">
         <img src="{{ asset('photo/img.webp') }}" alt="Image 1">
         <p>Expérience inoubliable avec nos experts</p>
     </div>
-    <div class="item">
+    <div class="item text-center">
         <img src="{{ asset('photo/img4.webp') }}" alt="Image 2">
         <p>Des solutions innovantes pour tous vos besoins</p>
     </div>
-    <div class="item">
-        <img src="{{ asset('photo/img3.jpg') }}" alt="Image 3">
-        <p>Satisfaction garantie pour tous nos clients</p>
+    <div class="item text-center">
+        <img src="{{ asset('photo/img3.webp') }}" alt="Image 2">
+        <p>satisfaction garantie pour tous nos clients</p>
     </div>
-    <div class="item">
-        <img src="{{ asset('photo/img2.png') }}" alt="Image 4">
-        <p>Votre satisfaction est notre priorité</p>
-    </div>
+    
 </div>
-
-
 
 
 
@@ -62,5 +57,4 @@
             </div>
         </div>
     </section>
-    {{-- ************************************************************************************** --}}
 @endsection

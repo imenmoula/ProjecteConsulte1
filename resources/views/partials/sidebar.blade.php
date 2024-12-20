@@ -40,6 +40,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('User.nb') }}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">les cart</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url('User/index') }}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-settings-2"></i>
                         <span class="nav-text">Liste des clients</span>

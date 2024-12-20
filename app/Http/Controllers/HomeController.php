@@ -6,6 +6,7 @@ use App\Models\Domaine;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Availability;
+use App\Models\Rendivent;
 
 
 
@@ -59,4 +60,11 @@ public function acceuil()
         ->get();
         return view('front.acceuil', compact('experts'));
 }
+public function historique()
+{
+    $rendivents = Rendivent::all(); 
+
+    return view('front.historique', compact('rendivents'));
+}
+
 }

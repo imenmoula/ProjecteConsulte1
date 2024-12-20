@@ -26,6 +26,9 @@ Route::get('/front', [HomeController::class, 'showfronT'])->name('front.showfron
 Route::get('/apropos', [HomeController::class, 'apropos'])->name('front.apropos');
 Route::get('/expert/{id}', [HomeController::class, 'detailsExperts'])->name('expert.detail');
 route::get('/acceuil', [HomeController::class, 'acceuil'])->name('front.acceuil');
+//Route::get('/dashboard', [AdminController::class, 'nbuser_expert'])->name('dashboard');
+Route::get('/historique', [HomeController::class, 'historique'])->name('front.historique');
+
 
 
 
@@ -60,6 +63,5 @@ Route::get('/consulte', [RendiventController::class, 'index'])->name('front.cons
 Route::get('/consulte/create', [RendiventController::class, 'create'])->name('front.consulte.create');
 Route::post('/consulte', [RendiventController::class, 'store'])->name('front.consulte.store');
 Route::get('/consulte/{rendivent}', [RendiventController::class, 'show'])->name('front.consulte.show');
-Route::get('/consulte/{rendivent}/edit', [RendiventController::class, 'edit'])->name('front.consulte.edit');
-Route::patch('/consulte/{rendivent}', [RendiventController::class, 'update'])->name('front.consulte.update');
+Route::put('consulte/{rendivent}', [RendiventController::class, 'update'])->name('front.consulte.update');
 Route::delete('/consulte/{rendivent}', [RendiventController::class, 'destroy'])->name('front.consulte.destroy');
