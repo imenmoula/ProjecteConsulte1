@@ -6,17 +6,10 @@ use App\Models\Rendivent;
 use Illuminate\Http\Request;
 
 class RendiventController extends Controller
-{
-    public function index()
+{public function index()
     {
-        $rendivents = Rendivent::with('user')->get();
+        $rendivents = Rendivent::all();
         return view('front.consulte.index', compact('rendivents'));
-    }
-
-    public function show($id)
-    {
-        $rendivent = Rendivent::with('user')->findOrFail($id);
-        return view('front.consulte.show', compact('rendivent'));
     }
 
     public function create()
@@ -27,42 +20,42 @@ class RendiventController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'expert_id' => 'required|exists:experts,id',
+            'user_id' => 'required|exists:users,id',
             'title' => 'required|string|max:255',
             'sujet' => 'nullable|string',
             'timedate' => 'required|date',
         ]);
-    
-        Rendivent::create($validated + ['user_id' => auth()->id()]);
-    
-        return redirect()->route('front.consulte.index')->with('success', 'Consultation créée avec succès.');
+
+        Rendivent::create($validated);
+        return redirect()->route('front.consulte.index')->with('success', 'Rendez-vous créé avec succès !');
     }
 
-    public function edit($id)
+    public function show(Rendivent $rendivent)
     {
-        $rendivent = Rendivent::findOrFail($id);
+        return view('front.consulte.show', compact('rendivent'));
+    }
+
+    public function edit(Rendivent $rendivent)
+    {
         return view('front.consulte.edit', compact('rendivent'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Rendivent $rendivent)
     {
         $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
             'title' => 'required|string|max:255',
             'sujet' => 'nullable|string',
             'timedate' => 'required|date',
         ]);
 
-        $rendivent = Rendivent::findOrFail($id);
         $rendivent->update($validated);
-
-        return redirect()->route('front.consulte.index')->with('success', 'Rendivent mis à jour avec succès.');
+        return redirect()->route('front.consulte.index')->with('success', 'Rendez-vous mis à jour avec succès !');
     }
 
-    public function destroy($id)
+    public function destroy(Rendivent $rendivent)
     {
-        $rendivent = Rendivent::findOrFail($id);
         $rendivent->delete();
-
-        return redirect()->route('front.consulte.index')->with('success', 'Rendivent supprimé avec succès.');
+        return redirect()->route('front.consulte.index')->with('success', 'Rendez-vous supprimé avec succès !');
     }
 }

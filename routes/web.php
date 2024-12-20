@@ -10,6 +10,7 @@ use App\Http\Controllers\FontController;
 use App\Http\Controllers\RendiventController;
 use App\Http\Controllers\AvailabilityController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,7 @@ Route::get('/', [HomeController::class, 'index'])->name('front.home');
 Route::get('/front', [HomeController::class, 'showfronT'])->name('front.showfront');
 Route::get('/apropos', [HomeController::class, 'apropos'])->name('front.apropos');
 Route::get('/expert/{id}', [HomeController::class, 'detailsExperts'])->name('expert.detail');
+route::get('/acceuil', [HomeController::class, 'acceuil'])->name('front.acceuil');
 
 
 
@@ -54,10 +56,10 @@ Route::get('/profiles/show', [App\Http\Controllers\ProfilesController::class, 's
 Route::get('/profiles/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
 Route::put('/profiles', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
 
-/* 
 Route::get('/consulte', [RendiventController::class, 'index'])->name('front.consulte.index');
-Route::get('/consulte/{id}', [RendiventController::class, 'show'])->name('front.consulte.show');
 Route::get('/consulte/create', [RendiventController::class, 'create'])->name('front.consulte.create');
 Route::post('/consulte', [RendiventController::class, 'store'])->name('front.consulte.store');
-Route::get('/consulte/{id}/edit', [RendiventController::class, 'edit'])->name('front.consulte.edit');
-*/
+Route::get('/consulte/{rendivent}', [RendiventController::class, 'show'])->name('front.consulte.show');
+Route::get('/consulte/{rendivent}/edit', [RendiventController::class, 'edit'])->name('front.consulte.edit');
+Route::patch('/consulte/{rendivent}', [RendiventController::class, 'update'])->name('front.consulte.update');
+Route::delete('/consulte/{rendivent}', [RendiventController::class, 'destroy'])->name('front.consulte.destroy');

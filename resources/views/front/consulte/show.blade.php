@@ -19,9 +19,16 @@
     </div>
 </div>
 
-<h1>Rendivent: {{ $rendivent->title }}</h1>
-<p>Sujet: {{ $rendivent->sujet }}</p>
-<p>Date/Time: {{ $rendivent->timedate }}</p>
-<p>Créé par: {{ $rendivent->user->name }}</p>
-<a href="{{ route('rendivents.index') }}" class="btn btn-primary">Retour</a>
+
+<div class="container">
+    <h1>Détails du Rendez-vous</h1>
+    <p><strong>ID : </strong>{{ $rendivent->id }}</p>
+    <p><strong>Utilisateur ID : </strong>{{ $rendivent->user_id }}</p>
+    <p><strong>Titre : </strong>{{ $rendivent->title }}</p>
+    <p><strong>Sujet : </strong>{{ $rendivent->sujet }}</p>
+    <p><strong>Date et Heure : </strong>{{ $rendivent->timedate }}</p>
+    <a href="{{ route('rendivents.index') }}" class="btn btn-secondary">Retour à la liste</a>
+</div>
+
+
 @endsection

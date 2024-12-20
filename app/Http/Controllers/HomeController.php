@@ -50,4 +50,13 @@ public function Apropos()
 
     return view('front.apropos', compact('experts'));
 }
+// Afficher la page d'accueil
+public function acceuil()
+{
+    $experts=User::where('role', 'expert')
+        ->whereHas('domaine')
+        ->with('domaine')
+        ->get();
+        return view('front.acceuil', compact('experts'));
+}
 }

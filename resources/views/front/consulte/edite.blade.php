@@ -1,43 +1,37 @@
 
 @extends('front.home')
 @section('container')
-<div class="header-bg header-bg-page">
-    <div class="header-padding position-relative">
-        <div class="header-page-shape">
-            
-        </div>
-        <div class="container">
-            <div class="header-page-content">
-                <h1>Mettre a jour la demande de consultation</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Mettre a jour la demande de consultation avec {{ $expert->name }}</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
-<h1>{{ isset($rendivent) ? 'Modifier' : 'Créer' }} un Rendez-vous</h1>
 
-<form action="{{ isset($rendivent) ? route('consulte.update', $rendivent->id) : route('consulte.store') }}" method="POST">
-    @csrf
-    @if(isset($rendivent))
+<div class="container">
+    <h1>Modifier le Rendez-vous</h1>
+    @if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+    <form action="{{ route('front.consulte.update', $rendivent) }}" method="POST">
+        @csrf
         @method('PUT')
-    @endif
-    <div>
-        <label for="title">Titre :</label>
-        <input type="text" name="title" id="title" value="{{ $rendivent->title ?? '' }}" required>
-    </div>
-    <div>
-        <label for="sujet">Sujet :</label>
-        <textarea name="sujet" id="sujet">{{ $rendivent->sujet ?? '' }}</textarea>
-    </div>
-    <div>
-        <label for="timedate">Date et heure :</label>
-        <input type="datetime-local" name="timedate" id="timedate" value="{{ $rendivent->timedate ?? '' }}" required>
-    </div>
-    <button type="submit">{{ isset($rendivent) ? 'Mettre à jour' : 'Créer' }}</button>
-</form>
+        <div class="mb-3">
+            <label for="user_id" class="form-label">Utilisateur ID</label>
+            <input type="number" class="form-control" id="user_id" name="user_id" value="{{ $rendivent->user_id }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ $rendivent->title }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="sujet" class="form-label">Sujet</label>
+            <textarea class="form-control" id="sujet" name="sujet">{{ $rendivent->sujet }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="timedate" class="form-label">Date et Heure</label>
+            <input type="datetime-local" class="form-control" id="timedate" name="timedate" value="{{ $rendivent->timedate }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
+@
+
 @endsection

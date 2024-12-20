@@ -1,44 +1,39 @@
 @extends('front.home')
 @section('container')
-<div class="header-bg header-bg-page">
-    <div class="header-padding position-relative">
-        <div class="header-page-shape">
-            
-        </div>
-        <div class="container">
-            <div class="header-page-content">
-                <h1>demande de consultation</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">demande de consultation avec {{ $expert->name }}</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="container">
-    
-    <h1>Passe une consultation avec {{ $expert->name }}</h1>
-    
+    <h1>Créer un Rendez-vous</h1>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <form action="{{ route('front.consulte.store') }}" method="POST">
         @csrf
-        <input type="hidden" name="expert_id" value="{{ $expert->id }}">
-        <div>
-            <label for="title">Titre :</label>
-            <input type="text" name="title" id="title" required>
+        
+        <div class="mb-3">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required>
+            @error('title')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        <div>
-            <label for="sujet">Sujet :</label>
-            <textarea name="sujet" id="sujet"></textarea>
+        <div class="mb-3">
+            <label for="sujet" class="form-label">Sujet</label>
+            <textarea class="form-control @error('sujet') is-invalid @enderror" id="sujet" name="sujet"></textarea>
+            @error('sujet')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        <div>
-            <label for="timedate">Date et heure :</label>
-            <input type="datetime-local" name="timedate" id="timedate" required>
+        <div class="mb-3">
+            <label for="timedate" class="form-label">Date et Heure</label>
+            <input type="datetime-local" class="form-control @error('timedate') is-invalid @enderror" id="timedate" name="timedate" required>
+            @error('timedate')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        <button type="submit">Confirmer</button>
+        <button type="submit" class="btn btn-primary">Créer</button>
     </form>
-    @endsection
-    
-
+</div>
+@endsection

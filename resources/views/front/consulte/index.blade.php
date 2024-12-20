@@ -19,42 +19,44 @@
         </div>
     </div>
 </div>
-<div class="container mt-4">
 
-    <a href="{{ route('front.consulte.create') }}" class="btn btn-primary">Créer un Rendez-vous</a>
-
-    @if($rendivents->isEmpty())
-        <div class="alert alert-warning" role="alert">
-            Aucune consultation trouvée.
-        </div>
-    @else
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col"><strong>Sujet</strong></th>
-                    <th scope="col"> <strong>Date et Heure</strong></th>
-
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($rendivents as $rendivent)
-                <tr>
-                    <td>{{ $rendivent->title }}</td>
-                    <td>{{ $rendivent->timedate }}</td>
-                    <td>
-                        <a href="{{ route('front.consulte.show', $rendivent->id) }}" class="btn btn-info btn-sm">Voir</a>
-                        <a href="{{ route('front.consulte.edit', $rendivent->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                        <form action="{{ route('front.consulte.destroy', $rendivent->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette consultation ?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    @endif
+<div class="container">
+    <h1>Liste des Rendez-vous</h1>
+    <a href="{{ route('front.consulte.create') }}" class="btn btn-primary mb-3">Ajouter un rendez-vous</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Utilisateur</th>
+                <th>Titre</th>
+                <th>Sujet</th>
+                <th>Date et Heure</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($rendivents as $rendivent)
+            <tr>
+                <td>{{ $rendivent->id }}</td>
+                <td>{{ $rendivent->user_id }}</td>
+                <td>{{ $rendivent->title }}</td>
+                <td>{{ $rendivent->sujet }}</td>
+                <td>{{ $rendivent->timedate }}</td>
+                <td>
+                    <a href="{{ route('front.consulte.show', $rendivent) }}" class="btn btn-info">Voir</a>
+                    <a href="{{ route('front.consulte.edit', $rendivent) }}" class="btn btn-warning">Modifier</a>
+                    <form action="{{ route('front.consulte.destroy', $rendivent) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
+@endsection
+
+
 @endsection

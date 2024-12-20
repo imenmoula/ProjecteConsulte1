@@ -165,7 +165,9 @@
                                     <a href="{{ route('front.home') }}" class="nav-link"></a>
                                     
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="{{ route('front.acceuil') }}" class="nav-link">Accueil</a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ route('front.showfront') }}" class="nav-link">NOS Expert</a>
                                 </li>

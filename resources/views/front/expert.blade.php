@@ -68,7 +68,7 @@
                 @else
                     <p class="text-white">Pas de disponibilité renseignée.</p>
                 @endif
-                <a href="#" class="btn btn-primary mt-3">Contacter {{ $experts->name }} est {{ $experts->av }}</a>
+                <a href="{{ route('front.consulte.create') }}" class="btn btn-primary mt-3">Contacter {{ $experts->name }} est {{ $experts->av }}</a>
             </div>
         </div>
     </div>
