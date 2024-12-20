@@ -38,6 +38,7 @@ class ProfilesController extends Controller
             'nb_experience' => 'nullable|integer',
             'address' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:15',
+            "domaine_id" => "required|exists:domaines,id"
         ]);
     
         if ($request->hasFile('image')) {

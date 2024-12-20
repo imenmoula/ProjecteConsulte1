@@ -30,10 +30,7 @@
             <input type="text" class="form-control" id="job" name="job" value="{{ old('job', $user->job) }}">
         </div>
 
-        <div class="form-group">
-            <label for="availability">Disponibilité</label>
-            <input type="checkbox" id="availability" name="availability" {{ $user->availability ? 'checked' : '' }}>
-        </div>
+        
 
         <div class="form-group">
             <label for="image">Image de Profil</label>

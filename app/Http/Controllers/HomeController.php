@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Domaine;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use App\Models\Availability;
 
 
 
@@ -29,20 +29,25 @@ class HomeController extends Controller
         return view('front.index', compact('domaines' ,'experts'));
     }
   
-    public function detailsExperts()
-    {
-        // Récupérer les utilisateurs avec le rôle 'expert', leurs domaines et disponibilités associées
-        $experts = User::with('domaine', 'availabilities') // Assurez-vous de charger les disponibilités
-            ->where('role', 'expert')
-            ->get();
-    
-        return view('front.expert', compact('experts'));
-    }
+    public function detailsExperts($id)
+{
+    // Fetch experts with their associated domain and availabilities
+    $experts = User::with(['domaine', 'availabilities'])
+        ->where('role', 'expert')
+        ->findOrFail($id);
 
-    /*public function Apropos()
-    {
-        $domaines = Domaine::with('experts')->get(); 
-        $experts = Experts::with('domaine')->get(); 
-      return view ('front.apropos',compact( 'domaines', 'experts'));
-    }*/
+    // Return the view with the fetched experts
+    return view('front.expert', compact('experts'));
+}
+
+
+public function Apropos()
+{
+    $experts = User::where('role', 'expert')
+        ->whereHas('domaine')
+        ->with('domaine')
+        ->get();
+
+    return view('front.apropos', compact('experts'));
+}
 }
