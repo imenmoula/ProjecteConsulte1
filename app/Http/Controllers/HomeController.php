@@ -29,19 +29,15 @@ class HomeController extends Controller
         return view('front.index', compact('domaines' ,'experts'));
     }
   
-    public function detailExpert($id)
+    public function detailsExperts()
     {
-        // Retrieve the expert by ID, with their domaine details
-        $expert = User::with('domaine')->find($id);
+        // Récupérer les utilisateurs avec le rôle 'expert', leurs domaines et disponibilités associées
+        $experts = User::with('domaine', 'availabilities') // Assurez-vous de charger les disponibilités
+            ->where('role', 'expert')
+            ->get();
     
-        if (!$expert) {
-            return redirect()->route('front.home')->with('error', 'Expert not found.');
-        }
-    
-        return view('front.expert', compact('expert'));
+        return view('front.expert', compact('experts'));
     }
-    
-
 
     /*public function Apropos()
     {

@@ -14,7 +14,8 @@
                 <thead class="table-dark">
                     <tr>
                         <th>Nom</th>
-                        <th>Poste</th>
+                        <th>Profession</th>
+                        <th>domaine</th>
                         <th>Téléphone</th>
                         <th>Email</th>
                         <th>Adresse</th>
@@ -26,6 +27,8 @@
                         <tr>
                             <td><strong>{{ $expert->name }}</strong></td>
                             <td>{{ $expert->job }}</td>
+                            <td>{{ $expert->domaine->name ?? 'N/A' }}</td>
+
                             <td>{{ $expert->phone }}</td>
                             <td>{{ $expert->email }}</td>
                             <td>{{ $expert->address }}</td>

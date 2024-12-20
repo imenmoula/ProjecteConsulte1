@@ -23,7 +23,7 @@ use App\Http\Controllers\AvailabilityController;
 Route::get('/', [HomeController::class, 'index'])->name('front.home');
 Route::get('/front', [HomeController::class, 'showfronT'])->name('front.showfront');
 Route::get('/apropos', [HomeController::class, 'apropos'])->name('front.apropos');
-Route::get('/expert/{id}', [HomeController::class, 'detailExpert'])->name('expert.detail');
+Route::get('/expert/{id}', [HomeController::class, 'detailsExperts'])->name('expert.detail');
 
 
 
@@ -47,7 +47,6 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middlewa
 Route::resource('domaines', DomaineController::class);
 Route::resource('experts', ExpertController::class);
 Route::get('status', [ExpertController::class, 'status'])->name('experts.status');
-
 // Afficher les disponibilités
 Route::resource('availabilities', AvailabilityController::class);
 
