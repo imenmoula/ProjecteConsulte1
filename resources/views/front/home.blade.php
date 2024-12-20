@@ -97,6 +97,10 @@
     margin-top: 15px; /* Ajouter de l'espace entre l'image et le texte */
 }
 
+.form-control {
+     border: 1px solid #080808 !important;
+     color: #080808 !important;
+}
 
             </style>
             <script>
