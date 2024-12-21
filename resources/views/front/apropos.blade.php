@@ -20,14 +20,14 @@
 </div>
 
 {{-- ***************************************************************************************** --}}
-<section class="welcome-section bg-overlay-1 pt-100 pb-70 bg-black">
+<section class="welcome-section bg-overlay-1 pt-100 pb-70 bg-white">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-sm-12 col-md-5 col-lg-5 pb-30">
                 <div class="section-title section-title-left text-center text-md-start m-0">
-                    <small>Bienvenue chez Group Consulting</small>
-                    <h2 class="color-white">Nous Accueillons Les Meilleurs Experts de Consulting Group</h2>
-                    <p>Consulting Group réunit les meilleurs experts du pays, offrant des services de conseil de qualité et des solutions innovantes. Nous nous engageons à fournir des solutions adaptées et à garantir la satisfaction de nos clients grâce à notre expertise et professionnalisme.</p>
+                    <small class="color-black">Bienvenue chez Group Consulting</small>
+                    <h2 class="text-black">Nous Accueillons Les Meilleurs Experts de Consulting Group</h2>
+                    <p class="text-black">Consulting Group réunit les meilleurs experts du pays, offrant des services de conseil de qualité et des solutions innovantes. Nous nous engageons à fournir des solutions adaptées et à garantir la satisfaction de nos clients grâce à notre expertise et professionnalisme.</p>
                      <a href="#" class="btn btn-icon">
                         Plus de détails chez Group Consulting
                         <i class="flaticon-right-arrow-sketch-1"></i>
@@ -56,11 +56,11 @@
 </section>
 {{-- **************************************************************************************** --}}
 
-<section class="team-section p-tb-100 bg-black">
+<section class="team-section p-tb-100 bg-white">
     <div class="container">
         <div class="section-title">
-            <small>Nos Meilleurs Experts</small>
-            <h2 class="color-white">Notre Équipe</h2>
+            <small class="color-black">Nos Meilleurs Experts</small>
+            <h2 class="text-black">Notre Équipe</h2>
         </div>
         <div class="team-carousel owl-carousel owl-theme">
             @forelse($experts as $expert)
@@ -86,23 +86,23 @@
                 </div>
             </div>
             @empty
-            <p>Pas d'experts</p>
+            <p class="text-black">Pas d'experts</p>
             @endforelse
         </div>
     </div>        
 </section>
 {{-- **************************************************************************************** --}}
 
-<section class="testimonial-section p-tb-100 bg-black bg-overlay-1">
+<section class="testimonial-section p-tb-100 bg-white bg-overlay-1">
     <div class="container">
         <div class="section-title">
             <small>Avis des Clients</small>
-            <h2 class="color-white">Les feedback de nos clients</h2>
+            <h2 class="color-black">Les feedback de nos clients</h2>
         </div>
         <div class="testimonial-carousel owl-carousel owl-theme">
             <div class="item">
                 <div class="testimonial-carousel-item bg-main">
-                    <p class="carousel-para">Group Consulting est la meilleure plateforme pour trouver des experts qualifiés.</p>
+                    <p class="carousel-para text-black">Group Consulting est la meilleure plateforme pour trouver des experts qualifiés.</p>
                     <div class="carousel-info-grid">
                         <div class="carousel-thumb">
                             <img src="{{ asset('photo/client-1.jpg') }}" alt="client">
@@ -125,7 +125,7 @@
             </div>
             <div class="item">
                 <div class="testimonial-carousel-item bg-main">
-                    <p class="carousel-para">Le service et  la qualité est toujours au rendez-vous. J'adore travailler avec Group Consulting.</p>
+                    <p class="carousel-para text-black">Le service et  la qualité est toujours au rendez-vous. J'adore travailler avec Group Consulting.</p>
                     <div class="carousel-info-grid">
                         <div class="carousel-thumb">
                             <img src="{{ asset('photo/client-2.jpg') }}" alt="client">
@@ -148,7 +148,7 @@
             </div>
             <div class="item">
                 <div class="testimonial-carousel-item bg-main">
-                    <p class="carousel-para">Chaque consultation est préparée avec soin et je suis toujours impressionné par le niveau d'expertise de Group Consulting.</p>
+                    <p class="carousel-para text-black">Chaque consultation est préparée avec soin et je suis toujours impressionné par le niveau d'expertise de Group Consulting.</p>
                     <div class="carousel-info-grid">
                         <div class="carousel-thumb">
                             <img src="{{ asset('photo/client-3.jpg') }}" alt="client">
