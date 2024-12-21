@@ -1,6 +1,8 @@
 @extends('dashboard')
 
 @section('content')
+
+<div class="container">
     <h1 class="mb-4">Liste des Rendez-Vous</h1>
 
     <!-- Flash Messages -->
@@ -49,4 +51,6 @@
             </tbody>
         </table>
     </div>
+
+</div>
 @endsection
