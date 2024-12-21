@@ -8689,6 +8689,10 @@ a {
 .bg-black {
   background: #4482d2 !important; }
 
+  .bg-white {
+    background: white !important;
+  text-color : #fff; }
+
 .text-black {
   color: #000 !important; }
 

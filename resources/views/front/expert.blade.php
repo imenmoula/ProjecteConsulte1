@@ -17,26 +17,25 @@
     </div>
 </div>
 
-<div class="product-details-section pt-100 pb-70 bg-black">
+<div class="product-details-section pt-100 pb-70 bg-white">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 pb-30">
-                <img 
-                 src="{{ Storage::url( $experts->image) }}" alt="expert">
+                <img src="{{ Storage::url( $experts->image) }}" alt="expert"
                 class="img-fluid rounded" 
                     alt="{{ $experts->name }}">
             </div>
             <div class="col-lg-7 pb-30">
-                <h3 class="color-white">{{ $experts->name }}</h3>
-                <p class="text-white"><strong>Email :</strong> {{ $experts->email }}</p>
-                <p class="text-white"><strong>Téléphone :</strong> {{ $experts->phone }}</p>
-                <p class="text-white"><strong>Adresse :</strong> {{ $experts->address ?? 'Non spécifiée' }}</p>
-                <p class="text-white"><strong>Spécialité :</strong> {{ $experts->job }}</p>
-                <p class="text-white"><strong>Expérience :</strong> {{ $experts->nb_experience }} ans</p>
-                <p class="text-white"><strong>Domaine :</strong> {{ $experts->domaine->name ?? 'Non spécifié' }}</p>
-                <h4 class="text-white">Disponibilités</h4>
+                <h3 class="color-black">{{ $experts->name }}</h3>
+                <p class="text-black"><strong>Email :</strong> {{ $experts->email }}</p>
+                <p class="text-black"><strong>Téléphone :</strong> {{ $experts->phone }}</p>
+                <p class="text-black"><strong>Adresse :</strong> {{ $experts->address ?? 'Non spécifiée' }}</p>
+                <p class="text-black"><strong>Spécialité :</strong> {{ $experts->job }}</p>
+                <p class="text-black"><strong>Expérience :</strong> {{ $experts->nb_experience }} ans</p>
+                <p class="text-black"><strong>Domaine :</strong> {{ $experts->domaine->name ?? 'Non spécifié' }}</p>
+                <h4 class="text-black">Disponibilités</h4>
                 @if($experts->availabilities->isNotEmpty())
-                <ul class="text-white">
+                <ul class="text-black">
                     @foreach($experts->availabilities as $availability)
                     @php
                         $start_time = Carbon::parse($availability->start_time)->format('d M Y H:i');
@@ -66,7 +65,7 @@
                 
                 </ul>
                 @else
-                    <p class="text-white">Pas de disponibilité renseignée.</p>
+                    <p class="text-black">Pas de disponibilité renseignée.</p>
                 @endif
                 <a href="{{ route('front.consulte.create') }}" class="btn btn-primary mt-3">Contacter {{ $experts->name }} est {{ $experts->av }}</a>
             </div>
