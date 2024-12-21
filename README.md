@@ -43,21 +43,20 @@
 
 ---
 
-### **2. Tableau de Bord Administrateur**
-![Tableau de Bord Admin](photo/photo2.png)
+### **2. a propos interface user**
+![apropos](photo/photo2.png)
 
 ---
 
 ### **3. Profil de l’Expert**
-![Profil Expert](photo/photo3.png)
+![ edit Profil Expert](photo/photo3.png)
 
 ---
 
 
 
 ### **5. Gestion des Disponibilités**
-![Gestion des Disponibilités](photo/photo4.png)
-
+![Gestion des Disponibilités](C:\laragon\www\ProjecteConsulte1\public\photo\photo4.png)
 ---
 
 ## **Installation**
