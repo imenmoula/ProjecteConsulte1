@@ -80,10 +80,10 @@
     </div>
 </section>
 
-<section class="step-section p-tb-100 bg-black">
+<section class="step-section p-tb-100 bg-white">
     <div class="container">
         <div class="section-title">
-            <h2 class="color-white">3 Steps pour passer une demande de consultation</h2>
+            <h2 class="color-black">3 Steps pour passer une demande de consultation</h2>
         </div>
         <div class="steps-box">
             <div class="row">
