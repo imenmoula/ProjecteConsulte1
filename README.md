@@ -38,18 +38,18 @@
 ## **Captures d'Écran**
 
 ### **1. Interface utilisateur**
-![interface utilisateur](photo/photo1.png)
+![interface utilisateur](public/photo/photo1.png)
 
 
 ---
 
 ### **2. a propos interface user**
-![apropos](photo/photo2.png)
+![apropos](public/photo/photo2.png)
 
 ---
 
 ### **3. Profil de l’Expert**
-![ edit Profil Expert](photo/photo3.png)
+![ edit Profil Expert](public/photo/photo3.png)
 
 ---
 
@@ -65,3 +65,11 @@
    ```bash
    git clone https://github.com/votre-utilisateur/consulting-expert.git
    cd consulting-expert
+
+1. **Installation des dépendances PHP avec Composer :**Assurez-vous d'avoir Composer installé. Ensuite, exécutez la commande suivante pour installer les dépendances :
+   ```bash
+         composer install
+
+1. **Exécution des migrations :** Pour configurer la base de données, exécutez la commande suivante pour appliquer les migrations :
+ ```bash
+ php artisan migrate
