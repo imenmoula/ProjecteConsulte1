@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <title> </title>
-    <link rel="icon" href="{{ asset('images/1.jfif') }}" type="image/png"
+    <link rel="icon" href="{{ asset('images/1.png') }}" type="image/png"
         sizes="16x16">
 
     <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}"

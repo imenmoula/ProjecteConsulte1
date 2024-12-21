@@ -11,7 +11,7 @@
 	
 	<meta name="description" content="Some description for the page"/>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/1.jfif')  }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/1.png')  }}">
 	
 	
 	
@@ -51,7 +51,7 @@
         ***********************************-->
         <div class="nav-header">
             <a href="index.html" class="brand-logo">
-							<img class="logo-abbr" src="{{ asset('images/1.jfif') }}"class="rounded-lg mr-3" width ="300%" height="150px"   alt="">
+							<img class="logo-abbr" src="{{ asset('images/1.png') }}"class="rounded-lg mr-3" width ="300%" height="150px"   alt="">
 				
             </a>
 

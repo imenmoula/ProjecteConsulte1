@@ -11,7 +11,7 @@
 	
 	<meta name="description" content="Some description for the page"/>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/1.jfif')  }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/1.png')  }}">
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -50,7 +50,7 @@
         
         <div class="nav-header">
             <a href="#" class="brand-logo">
-                <img class="logo-abbr rounded-circle" src="{{ asset('images/1.jfif') }}" width="100" height="100" alt="Logo">
+                <img class="logo-abbr rounded-circle" src="{{ asset('images/1.png') }}" width="100" height="100" alt="Logo">
 				
             </a>
 

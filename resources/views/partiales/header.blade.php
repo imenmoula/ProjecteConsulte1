@@ -57,7 +57,7 @@
             <div class="mobile-nav">
                 <a href="" class="mobile-brand">
                   
-                    <img src="{{ asset('images/1.jfif') }}" alt="logo" class="rounded-lg mr-2" width="50" height="50">
+                    <img src="{{ asset('images/1.png') }}" alt="logo" class="rounded-lg mr-2" width="50" height="50">
                     
                 </a>
 
@@ -155,8 +155,8 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ route('front.home') }}">
-                            <img src="{{ asset('images/1.jfif') }}" alt="logo" class="logo logo1">
-                            <img src="{{ asset('images/1.jfif') }}" alt="logo" class="logo2">
+                            <img src="{{ asset('images/1.png') }}" alt="logo" class="logo logo1">
+                            <img src="{{ asset('images/1.png') }}" alt="logo" class="logo2">
                         </a>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
