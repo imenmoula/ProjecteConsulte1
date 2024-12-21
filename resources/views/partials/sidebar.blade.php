@@ -46,7 +46,7 @@
                     </a>
                 </li> --}}
                 <li>
-                    <a href="{{ url('User/index') }}" class="ai-icon" aria-expanded="false">
+                    <a href="{{ route('users.index') }}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-settings-2"></i>
                         <span class="nav-text">Liste des clients</span>
                     </a>

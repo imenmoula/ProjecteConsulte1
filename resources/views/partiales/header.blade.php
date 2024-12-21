@@ -185,7 +185,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ url('/login') }}" class="nav-link">Connexion[{{ auth()->user()->name }}]</a>
+                                    <a href="{{ url('/login') }}" class="nav-link">Connexion[{{ auth()?->user()?->name }}]</a>
                                 </li>
 
                                 <li class="nav-item">

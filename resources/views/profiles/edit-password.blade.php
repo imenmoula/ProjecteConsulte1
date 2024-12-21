@@ -1,8 +1,8 @@
-@extends('dashboard')
+    @extends('dashboard')
 
-@section('content')
+    @section('content')
 
-<div class="container">
+    <div class="container">
     <h1>Modifier le mot de passe</h1>
 
     <form method="POST" action="{{ route('profile.updatePassword') }}">

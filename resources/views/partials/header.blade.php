@@ -18,7 +18,7 @@
 					<li class="nav-item dropdown header-profile">
 						<a class="nav-link" href="" role="button" data-toggle="dropdown">
 							<div class="header-info">
-								<span>Bonjour <strong>{{ auth()->user()->name }} {{  auth()->user()->role }}</strong></span>
+								<span>Bonjour <strong>{{ auth()?->user()?->name }} {{  auth()?->user()?->role }}</strong></span>
 							</div>
 							<img src="{{Storage::url(auth()->user()->image)}}" width="250" alt=""/>
 
