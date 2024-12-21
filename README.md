@@ -1,37 +1,44 @@
 # **ConsultingExpert**
 
-**ConsultingExpert** est une plateforme de consulting en ligne développée avec Angular pour le frontend, Node.js et FastAPI pour le backend, et MongoDB pour la base de données. Elle permet aux utilisateurs de se connecter, de consulter des experts dans différents domaines et de gérer leurs consultations.
+# Plateforme de Gestion des Experts en Ligne(Group Consulting )
+La plateforme **Group Consulting** est développée avec Laravel pour gérer les consultations dans différents domaines.
+
+
+
+## Technologies Utilisées
+- **Frontend**: laravel
+- **Backend** : laravel
+- **Base de Données** : Mysql
 
 ---
 
-## **Fonctionnalités**
 
-### **Authentification Utilisateur :**
+### **Authentification Utilisateur/administrateur/Expert :**
 - Écran de connexion pour les utilisateurs inscrits.
 - Écran d’inscription pour les nouveaux utilisateurs.
 - Déconnexion sécurisée.
 
----
 
-### **Administration :**
-- **Gestion des domaines** : Ajouter, modifier et supprimer des domaines d’expertise.
-- **Gestion des experts** : Ajouter, éditer ou supprimer les profils des experts.
-- **Suivi des disponibilités** : Consulter et mettre à jour les créneaux disponibles des experts.
-- **Liste des clients** : Visualiser et gérer les comptes des clients.
+### Pour l'Admin
+- Inscription et connexion
+- Gestion des domaines
+- Gestion des experts
+- Suivi des disponibilités des experts
+- Liste des clients
 
----
+### Pour l'Expert
+- Inscription et connexion
+- Gestion des consultations
+- Édition du profil
+- Gestion des disponibilités
 
-### **Expert :**
-- **Modification du profil** : Personnalisation des informations professionnelles.
-- **Gestion des disponibilités** : Ajout, édition et suppression des créneaux horaires.
-- **Consultations** : Suivi et gestion des rendez-vous avec les clients.
-
----
-
-### **Utilisateur :**
-- **Passer une demande de consultation** : Réserver un rendez-vous avec un expert.
-- **Consulter les experts** : Recherche et exploration des profils experts par domaine.
-- **Gestion du compte** : Mise à jour des informations personnelles.
+### Pour l'Utilisateur
+- Inscription et connexion
+- Demande de consultation
+- Gestion des consultations
+- Consultation de la liste des experts
+- Liste historique des consultations avec option de suppression
+- Accès à la section "À propos" pour découvrir les services de la plateforme "Group Consulting"
 
 ---
 
