@@ -9,6 +9,7 @@ use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\FontController;
 use App\Http\Controllers\RendiventController;
 use App\Http\Controllers\AvailabilityController;
+use App\Http\Controllers\ConsultationController;
 
 
 /*
@@ -30,6 +31,7 @@ route::get('/acceuil', [HomeController::class, 'acceuil'])->name('front.acceuil'
 Route::get('/historique', [HomeController::class, 'historique'])->name('front.historique');
 Route::get('/experts', [HomeController::class, 'filterExperts'])->name('front.acceuil');
 
+Route::get('users', [AdminController::class, 'afficheUser'])->name('users.index');
 
 
 
@@ -66,3 +68,8 @@ Route::post('/consulte', [RendiventController::class, 'store'])->name('front.con
 Route::get('/consulte/{rendivent}', [RendiventController::class, 'show'])->name('front.consulte.show');
 Route::put('consulte/{rendivent}', [RendiventController::class, 'update'])->name('front.consulte.update');
 Route::delete('/consulte/{rendivent}', [RendiventController::class, 'destroy'])->name('front.consulte.destroy');
+
+Route::get('rendivents', [ConsultationController::class, 'index'])->name('consultation.index');
+
+// Route pour accepter un rendez-vous
+Route::post('rendivent/{id}/accept', [ConsultationController::class, 'acceptRendezVous'])->name('acceptRendezVous');

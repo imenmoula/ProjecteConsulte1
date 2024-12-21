@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth; 
 
 use App\Models\Domaine;
 use App\Models\User;
@@ -60,13 +61,26 @@ public function acceuil()
         ->get();
         return view('front.acceuil', compact('experts'));
 }
+// public function historique()
+// {
+//     $rendivents = Rendivent::all(); 
+
+//     return view('front.historique', compact('rendivents'));
+// }
+
 public function historique()
 {
-    $rendivents = Rendivent::all(); 
+    // Récupérer l'utilisateur connecté
+    $user = Auth::user();
 
+    // Récupérer les rendez-vous de l'utilisateur connecté, avec les informations sur l'expert et le domaine
+    $rendivents = Rendivent::where('user_id', $user->id)
+                           ->with('user.domaine') // Charger le domaine de l'expert
+                           ->get();
+
+    // Retourner la vue avec les rendez-vous et les informations sur l'expert et le domaine
     return view('front.historique', compact('rendivents'));
 }
-
 
 
 

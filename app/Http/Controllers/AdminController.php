@@ -10,6 +10,15 @@ class AdminController extends Controller
     {
         return view('User.master');
     }
+    public function afficheUser()
+    {
+        // Récupérer uniquement les utilisateurs avec le rôle 'user'
+        $users = User::where('role', 'user')->get();
+        
+        // Retourner la vue avec les utilisateurs
+        return view('User.index', compact('users'));
+    }
+    
    /* public function nbuser_expert()
     {
         // Calcul du nombre total d'utilisateurs

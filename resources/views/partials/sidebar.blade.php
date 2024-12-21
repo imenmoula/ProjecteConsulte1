@@ -3,7 +3,7 @@
         <ul class="metismenu" id="menu">
             @if(auth()->check() && auth()->user()->role == 'expert') 
                 <li>
-                    <a href="#" class="ai-icon" aria-expanded="false">
+                    <a href="{{ route('consultation.index') }}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-television"></i>
                         <span class="nav-text">Gestion des consultations</span>
                     </a>

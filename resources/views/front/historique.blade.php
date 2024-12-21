@@ -31,6 +31,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Utilisateur</th>
+                    <th>Expert</th>
+                    <th>Domaine</th>
                     <th>Titre</th>
                     <th>Sujet</th>
                     <th>Date et Heure</th>
@@ -39,23 +41,30 @@
             </thead>
             <tbody>
                 @foreach ($rendivents as $rendivent)
-                <tr>
-                    <td>{{ $rendivent->id }}</td>
-                    <td>{{ $rendivent->user->name }}</td>
-                    <td>{{ $rendivent->title }}</td>
-                    <td>{{ Str::limit($rendivent->sujet, 50) }}</td>
-                    <td>{{ \Carbon\Carbon::parse($rendivent->timedate)->format('d M Y, H:i') }}</td>
-                    <td>
-                        <!-- Action buttons with icons -->
-                        <form action="{{ route('front.consulte.destroy', $rendivent) }}" method="POST" style="display:inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rendez-vous ?')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" title="Supprimer">
-                                <i class="fas fa-trash-alt"></i> Supprimer
-                            </button>
-                        </form>                    
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $rendivent->id }}</td>
+                        <td>{{ $rendivent->user->name}}</td>
+                        <td>
+                            @if($rendivent->user->role == 'expert')
+                                {{ $rendivent->user->name }} (Expert)
+                            @else
+                                {{ $rendivent->user->name }}
+                            @endif
+                        </td>                        <td>{{ $rendivent->user->domaine->name ?? 'Domaine non défini' }}</td> <!-- Domaine de l'expert -->
+                        <td>{{ $rendivent->title }}</td>
+                        <td>{{ Str::limit($rendivent->sujet, 50) }}</td>
+                        <td>{{ \Carbon\Carbon::parse($rendivent->timedate)->format('d M Y, H:i') }}</td>
+                        <td>
+                            
+                            <form action="{{ route('front.consulte.destroy', $rendivent) }}" method="POST" style="display:inline;" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rendez-vous ?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" title="Supprimer">
+                                    <i class="fas fa-trash-alt"></i> Supprimer
+                                </button>
+                            </form>                    
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

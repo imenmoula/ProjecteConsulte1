@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Rendivent;
 use Illuminate\Http\Request;
@@ -8,9 +9,14 @@ use Illuminate\Http\Request;
 class RendiventController extends Controller
 {public function index()
     {
-        $rendivents = Rendivent::all();
+        $user = Auth::user();
+    
+        // Récupère les rendez-vous de l'utilisateur connecté et charge le domaine de l'expert
+        $rendivents = Rendivent::where('user_id', $user->id)->with('user.domaine')->get();
+    
         return view('front.consulte.index', compact('rendivents'));
     }
+    
 
     public function create()
     {
