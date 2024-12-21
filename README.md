@@ -41,25 +41,37 @@ La plateforme **Group Consulting** est développée avec Laravel pour gérer les
 
 ---
 
-## **Captures d'Écran**
+## **le interface de utilisateur**
+### **1. login**
+![login](public/photo/login1.png)
+### **2. inscrit**
+![inscrit](public/photo/inscrit2.png)
 
-### **1. Interface utilisateur**
+### **3. Interface utilisateur**
 ![interface utilisateur](public/photo/photo5.png)
 
 
 ---
 
-### **1. a propos interface user **
+### **4. a propos interface user **
 ![interface utilisateur a propos ](public/photo/photo2.png)
 
 
 ---
-### **2. liste des expert interface user**
+### **5. liste des expert interface user**
 ![liste dexpert ](public/photo/photo1.png)
 
 ---
+### **6. experrt detaille**
+![expert detaille](public/photo/detail.png)
+----
+### **7. historique des consultaion**
+![historic des consulte](public/photo/historis.png)
+----
 
-### **3. Profil de l’Expert**
+## **le interface de expert**
+
+### **4. Profil de l’Expert**
 ![ edit Profil Expert](public/photo/photo3.png)
 
 ---
@@ -69,7 +81,16 @@ La plateforme **Group Consulting** est développée avec Laravel pour gérer les
 ### **5. Gestion des Disponibilités**
 ![Gestion des Disponibilités](public/photo/photo4.png)
 ---
-
+## **le interface de  admin **
+### **1. Gestion des domaine**
+![Gestion des domaine](public/photo/domaine.png)
+---
+### **2. Gestion des expert**
+![Gestion des expert](public/photo/expert.png)
+---
+### **3. suiv disponibiliet dexpert**
+![suiv disponibiliet dexpert](public/photo/suiv.png)
+---
 ## **Installation**
 
 1. **Clonez le dépôt :**

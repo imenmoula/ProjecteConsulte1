@@ -53,7 +53,7 @@
                               <div class="pt-1 mb-4">
                                 <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                               </div>
-                              <p class="mb-5 pb-lg-2 mt-3" style="color: #393f81;">Vous n'avez pas de compte? <a href="{{ route('inscription') }}" style="color: #393f81;">Inscription</a><a href="{{ route('logout')}}" style="color: #393f81;"> deconnecter</a></p>
+                              <p class="mb-5 pb-lg-2 mt-3" style="color: #393f81;">Vous n'avez pas de compte? <a href="{{ route('inscription') }}" style="color: #393f81;">Inscription</a></p>
                             </form>
                         </div>
                       </div>
