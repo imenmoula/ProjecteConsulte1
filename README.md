@@ -1,18 +1,68 @@
-Plateforme de Consulting d'Experts en Ligne
+# **ConsultingExpert**
 
-        Fonctionnalités
-        Administrateur
-        Inscription et Connexion : Accès sécurisé au tableau de bord administrateur.
-        Gestion des domaines (CRUD) : Ajouter, modifier, supprimer ou afficher des domaines d'expertise.
-        Gestion des experts (CRUD) : Ajouter, modifier, suspendre ou supprimer des profils d'experts.
-        Suivi des disponibilités des experts : Contrôler et mettre à jour les créneaux horaires disponibles des experts.
-        Liste des clients : Visualiser et gérer les informations des utilisateurs.
-        Expert
-        Inscription et Connexion : Création et accès sécurisé au compte expert.
-        Modification du profil : Mise à jour des informations personnelles et professionnelles.
-        Gestion des disponibilités (CRUD) : Ajouter, modifier, ou supprimer des créneaux horaires disponibles pour les consultations.
-        Gestion des consultations : Gérer les rendez-vous programmés avec les clients.
-        Utilisateur
-        Inscription et Connexion : Création et accès sécurisé au compte utilisateur.
-        Consulter les experts : Recherche et consultation des profils des experts disponibles.
-        Passer une demande de consultation : Réserver un rendez-vous avec l’expert sélectionné.
+**ConsultingExpert** est une plateforme de consulting en ligne développée avec Angular pour le frontend, Node.js et FastAPI pour le backend, et MongoDB pour la base de données. Elle permet aux utilisateurs de se connecter, de consulter des experts dans différents domaines et de gérer leurs consultations.
+
+---
+
+## **Fonctionnalités**
+
+### **Authentification Utilisateur :**
+- Écran de connexion pour les utilisateurs inscrits.
+- Écran d’inscription pour les nouveaux utilisateurs.
+- Déconnexion sécurisée.
+
+---
+
+### **Administration :**
+- **Gestion des domaines** : Ajouter, modifier et supprimer des domaines d’expertise.
+- **Gestion des experts** : Ajouter, éditer ou supprimer les profils des experts.
+- **Suivi des disponibilités** : Consulter et mettre à jour les créneaux disponibles des experts.
+- **Liste des clients** : Visualiser et gérer les comptes des clients.
+
+---
+
+### **Expert :**
+- **Modification du profil** : Personnalisation des informations professionnelles.
+- **Gestion des disponibilités** : Ajout, édition et suppression des créneaux horaires.
+- **Consultations** : Suivi et gestion des rendez-vous avec les clients.
+
+---
+
+### **Utilisateur :**
+- **Passer une demande de consultation** : Réserver un rendez-vous avec un expert.
+- **Consulter les experts** : Recherche et exploration des profils experts par domaine.
+- **Gestion du compte** : Mise à jour des informations personnelles.
+
+---
+
+## **Captures d'Écran**
+
+### **1. Interface utilisateur**
+![interface utilisateur](photo/photo1.png)
+
+
+---
+
+### **2. Tableau de Bord Administrateur**
+![Tableau de Bord Admin](photo/photo2.png)
+
+---
+
+### **3. Profil de l’Expert**
+![Profil Expert](photo/photo3.png)
+
+---
+
+
+
+### **5. Gestion des Disponibilités**
+![Gestion des Disponibilités](photo/photo4.png)
+
+---
+
+## **Installation**
+
+1. **Clonez le dépôt :**
+   ```bash
+   git clone https://github.com/votre-utilisateur/consulting-expert.git
+   cd consulting-expert
