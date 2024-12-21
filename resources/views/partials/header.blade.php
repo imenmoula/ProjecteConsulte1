@@ -18,9 +18,12 @@
 					<li class="nav-item dropdown header-profile">
 						<a class="nav-link" href="" role="button" data-toggle="dropdown">
 							<div class="header-info">
-								<span>Bonjour <strong></strong></span>
+								<span>Bonjour <strong>{{ auth()?->user()?->name }} {{  auth()?->user()?->role }}</strong></span>
 							</div>
-							<img src="{{ asset('images/1.jfif') }}" width="250" alt=""/>
+							<img src="{{Storage::url(auth()->user()->image)}}" width="250" alt=""/>
+
+							
+
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<a href="" class="dropdown-item ai-icon">

@@ -20,8 +20,11 @@ return new class extends Migration
             $table->string('address')->nullable(); 
             $table->enum('role', ['user', 'admin', 'expert'])->default('user');
             $table->string('phone')->nullable(); 
-            $table->string('specialty')->nullable();
+            $table->string('job')->nullable();
             $table->boolean('availability')->default(true);
+            $table->string('image')->nullable();
+            $table->integer('nb_experience')->nullable(); 
+            $table->foreignId('domaine_id')->constrained()->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

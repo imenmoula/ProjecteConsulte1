@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\user;
 
 class Domaine extends Model
 {
@@ -12,10 +13,12 @@ class Domaine extends Model
    
     protected $fillable = ['name', 'description', 'image']; 
 
-    public function domaineUsers()
-    {
-        return $this->hasMany(DomaineUser::class);
-    }
+   
 
+    public function user()
+    {
+        return $this->hasMany(user::class);
+    }
+    
 
 }

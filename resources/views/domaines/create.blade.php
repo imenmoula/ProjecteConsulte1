@@ -1,23 +1,22 @@
 @extends('dashboard')
 @section('content')
-
-<h1>Ajouter un Domaine</h1>
-
-<form action="{{ route('domaines.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    
-    <label for="name">Nom:</label>
-    <input type="text" name="name" required>
-
-    <label for="description">Description:</label>
-    <textarea name="description"></textarea>
-
-    <label for="image">Image:</label>
-    <input type="file" name="image">
-
-    <button type="submit">Créer</button>
-</form>
-
-<a href="{{ route('domaines.index') }}">Retour à la liste</a>
-
+<div class="container">
+    <h1>Créer un Domaine</h1>
+    <form action="{{ route('domaines.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" name="image" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Créer</button>
+    </form>
+</div>
 @endsection

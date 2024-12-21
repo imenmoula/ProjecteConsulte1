@@ -57,7 +57,7 @@
             <div class="mobile-nav">
                 <a href="" class="mobile-brand">
                   
-                    <img src="{{ asset('images/1.jfif') }}" alt="logo" class="rounded-lg mr-2" width="50" height="50">
+                    <img src="{{ asset('images/1.png') }}" alt="logo" class="rounded-lg mr-2" width="50" height="50">
                     
                 </a>
 
@@ -155,23 +155,29 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ route('front.home') }}">
-                            <img src="{{ asset('images/1.jfif') }}" alt="logo" class="logo logo1">
-                            <img src="{{ asset('images/1.jfif') }}" alt="logo" class="logo2">
+                            <img src="{{ asset('images/1.png') }}" alt="logo" class="logo logo1">
+                            <img src="{{ asset('images/1.png') }}" alt="logo" class="logo2">
                         </a>
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto">
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="{{ route('front.home') }}" class="nav-link"></a>
                                     
-                                </li>
-
+                                </li> --}}
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">NOS Expert</a>
+                                    <a href="{{ route('front.acceuil') }}" class="nav-link">Accueil</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Reservation</a>
+                                    <a href="{{ route('front.showfront') }}" class="nav-link">NOS Expert</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('front.apropos') }}" class="nav-link">A propos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('front.historique') }}" class="nav-link">List Historique</a>
+                                </li>
+                               
                                 
 
                                 <li class="nav-item">
@@ -179,7 +185,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ url('/login') }}" class="nav-link">Connexion</a>
+                                    <a href="{{ url('/login') }}" class="nav-link">Connexion[{{ auth()?->user()?->name }}]</a>
                                 </li>
 
                                 <li class="nav-item">

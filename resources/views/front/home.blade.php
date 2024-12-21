@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <title> </title>
-    <link rel="icon" href="{{ asset('images/1.jfif') }}" type="image/png"
+    <link rel="icon" href="{{ asset('images/1.png') }}" type="image/png"
         sizes="16x16">
 
     <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}"
@@ -76,10 +76,65 @@
             padding: 0;
             font: inherit;
             cursor: pointer;
-            color: white;
+            color: rgb(18, 15, 15);
         }
+        .header-carousel-two .item {
+    text-align: center; /* Centrer le contenu */
+    width: 100%; /* Occuper toute la largeur du conteneur */
+}
+
+.header-carousel-two .item img {
+    max-width: 50%; /* L'image occupe 80% de la largeur */
+    height: auto; /* Maintenir les proportions */
+    display: block; /* Centrer l'image */
+    margin: 0 auto; /* Centrer dans le conteneur */
+}
+
+.header-carousel-two .item p {
+    font-size: 20px; /* Augmenter la taille du texte */
+    font-weight: bold; /* Mettre le texte en gras */
+    color:#333; /* Couleur du texte */
+    margin-top: 15px; /* Ajouter de l'espace entre l'image et le texte */
+}
+
+.form-control {
+     border: 1px solid #080808 !important;
+     color: #080808 !important;
+}
 
             </style>
+            <script>
+                $(document).ready(function(){
+                    $('.header-carousel-two').owlCarousel({
+                        loop: true,
+                        items: 1,
+                        nav: true,
+                        dots: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000
+                    });
+                });
+                $(document).ready(function () {
+                $('.header-carousel-two').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    items: 1, // Afficher un élément à la fois
+                    responsive: {
+                        0: { items: 1 },
+                        600: { items: 1 },
+                        1000: { items: 1 }
+                    }
+                });
+            });
+
+           
+
+
+
+
+
+            </script>
 
     
 </head>

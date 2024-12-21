@@ -14,9 +14,10 @@ class DomaineController extends Controller
     }
 
     public function create()
-    {
-        return view('domaines.create');
-    }
+{
+    $domaines = Domaine::all();
+    return view('domaines.create', compact('domaines'));
+}
 
     public function store(Request $request)
     {
@@ -47,8 +48,9 @@ class DomaineController extends Controller
         return redirect()->route('domaines.index')->with('success', 'Domaine créé avec succès.');
     }
 
-    public function show(Domaine $domaine)
+    public function show($id)
     {
+        $domaine = Domaine::findOrFail($id);
         return view('domaines.show', compact('domaine'));
     }
 
@@ -97,4 +99,6 @@ class DomaineController extends Controller
         
         return redirect()->route('domaines.index')->with('success', 'Domaine supprimé avec succès.');
     }
+
+    
 }

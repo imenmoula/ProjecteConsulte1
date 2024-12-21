@@ -20,7 +20,7 @@ class RoleRedirect
 
         switch ($role) {
             case 'user':
-                return redirect()->route('front.home');
+                return redirect()->route('front.ac');
             case 'expert':
                 return redirect()->route('Expert.interface');
             case 'admin':
