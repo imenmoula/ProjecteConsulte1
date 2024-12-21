@@ -10,7 +10,7 @@
                 <h1>Liste des experts</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('front.home') }}">Retour a l'accueil</a> </li>
+                        <li class="breadcrumb-item"><a href="">Retour a l'accueil</a> </li>
                         <li class="breadcrumb-item active" aria-current="page">Liste des experts</li>
                     </ol>
                 </nav>

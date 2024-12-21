@@ -28,6 +28,7 @@ Route::get('/expert/{id}', [HomeController::class, 'detailsExperts'])->name('exp
 route::get('/acceuil', [HomeController::class, 'acceuil'])->name('front.acceuil');
 //Route::get('/dashboard', [AdminController::class, 'nbuser_expert'])->name('dashboard');
 Route::get('/historique', [HomeController::class, 'historique'])->name('front.historique');
+Route::get('/experts', [HomeController::class, 'filterExperts'])->name('front.acceuil');
 
 
 

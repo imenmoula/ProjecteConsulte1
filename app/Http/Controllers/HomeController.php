@@ -67,4 +67,48 @@ public function historique()
     return view('front.historique', compact('rendivents'));
 }
 
+
+
+
+
+
+
+public function filterExperts(Request $request)
+{
+    // Get distinct status values from the availabilities table
+    $status = Availability::distinct()->pluck('status');
+
+    // Filter the experts based on the request and return them
+    $experts = User::query()
+        ->where('role', 'expert')
+        ->when($request->has('address'), function($query) use ($request) {
+            return $query->where('address', $request->address);
+        })
+        ->when($request->has('status'), function($query) use ($request) {
+            return $query->whereHas('availabilities', function($query) use ($request) {
+                return $query->whereIn('status', $request->status);
+            });
+        })
+        ->when($request->has('domaine'), function($query) use ($request) {
+            return $query->where('domaine_id', $request->domaine);
+        })
+        ->get();
+
+    // Get all the available locations and domaines (assuming you have these in your database)
+    $locations = User::distinct()->pluck('address');
+    $domaines = Domaine::all();  // Assuming Domaine is a model that contains expertise domains
+
+    // Return view with experts and dynamic statuses
+    return view('front.acceuil', compact('experts', 'status', 'locations', 'domaines'));
+}
+
+
+
+
+
+
+
+
+
+
 }

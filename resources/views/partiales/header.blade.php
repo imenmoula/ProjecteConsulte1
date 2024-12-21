@@ -161,10 +161,10 @@
 
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto">
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="{{ route('front.home') }}" class="nav-link"></a>
                                     
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a href="{{ route('front.acceuil') }}" class="nav-link">Accueil</a>
                                 </li>

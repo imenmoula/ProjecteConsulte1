@@ -10,7 +10,7 @@
             <div class="header-page-content text-center text-white">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent justify-content-center">
-                        <li class="breadcrumb-item"><a href="{{ route('front.home') }}" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item"><a href="" class="text-white">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page" class="text-white">Liste  des Consultations </li>
                     </ol>
                 </nav>
