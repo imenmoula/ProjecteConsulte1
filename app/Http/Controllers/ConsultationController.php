@@ -12,9 +12,7 @@ class ConsultationController extends Controller
     public function index()
     {
         // Récupérer uniquement les rendez-vous des utilisateurs ayant le rôle "expert"
-        $rendivents = Rendivent::with(['user' => function ($query) {
-            $query->where('role', 'expert');
-        }])->where('user_id', '=', auth()->user()->id)->get();
+        $rendivents = Rendivent::with(['user'])->get();
     
         // Ajouter des informations sur la disponibilité pour chaque rendez-vous
         $rendivents = $rendivents->map(function ($rendivent) {
