@@ -31,7 +31,7 @@
                     <tr>
                         <td>{{ $rendivent->title }}</td>
                         <td>{{ Str::limit($rendivent->sujet, 50) }}</td> <!-- Limite de 50 caractères pour le sujet -->
-                        <td>{{ $rendivent->user->name }}</td>
+                        {{-- <td>{{ $rendivent->user->name }}</td> --}}
                         <td>{{ \Carbon\Carbon::parse($rendivent->timedate)->format('d M Y, H:i') }}</td>
                         <td>
                             <!-- Action Buttons -->

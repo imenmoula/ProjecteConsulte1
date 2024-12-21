@@ -16,7 +16,11 @@ class HomeController extends Controller
     // Afficher la page d'accueil
     public function index()
     {
-        return view('front.home');
+        $experts=User::where('role', 'expert')
+        ->whereHas('domaine')
+        ->with('domaine')
+        ->get();
+        return view('front.acceuil', compact('experts'));
     }
     public function showfront()
     {
