@@ -1,4 +1,3 @@
-# **ConsultingExpert**
 
 # Plateforme de Gestion des Experts en Ligne(Group Consulting )
 La plateforme **Group Consulting** est développée avec Laravel pour gérer les consultations dans différents domaines.
